@@ -10,7 +10,10 @@ export default component$(() => {
   return (
     <section>
       <BotFilters />
-      <ExploreBots />
+      <ExploreBots
+        description="Most voted revolt bots..."
+        heading="Top Revolt Bots"
+      />
     </section>
   );
 });

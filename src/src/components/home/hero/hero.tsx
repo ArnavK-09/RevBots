@@ -5,6 +5,7 @@ import { component$ } from "@builder.io/qwik";
 import Tag from "@/components/ui/tag/tag";
 import Endline from "@/components/ui/endline/endline";
 import GradientText from "@/components/ui/gradient/text";
+import SearchBar from "@/components/home/hero/search/bar";
 
 // home page quick search, hero
 export default component$(() => {
@@ -14,11 +15,7 @@ export default component$(() => {
         <h1 class="text-left font-semibold md:text-7xl text-5xl">
           Rev the <GradientText text="Revolt" /> bots...
         </h1>{" "}
-        <input
-          type="text"
-          class="py-3 my-3 px-4 block w-full bg-white/10 shadow-md outline-none rounded-md backdrop-blur-md"
-          placeholder="Explore bots..."
-        />
+        <SearchBar />
         <div class="mt-5 gap-x-4 overflow-x-scroll flex flex-scroll">
           <Tag label="Anime" />
         </div>
