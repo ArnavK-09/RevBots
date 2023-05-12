@@ -31,7 +31,7 @@ export default component$(() => {
         {/*<MobileMenu />*/}
       </header>
       <main class="pt-20">
-        <h1>TODO{`${location.isNavigating}`}</h1>
+        <h1 hidden>TODO{`${location.isNavigating}`}</h1>
         <Slot />
       </main>
       <footer />

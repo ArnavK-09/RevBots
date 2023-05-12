@@ -1,7 +1,12 @@
 // imports
 import type { RequestHandler } from "@builder.io/qwik-city";
+import { PrismaClient } from '@prisma/client';
 
-// GET /api/bots
+
+// GET /api/botd
 export const onGet: RequestHandler = async (e) => {
-  e.text(200, "Hello World");
+  const prisma = new PrismaClient();
+    
+  const users = await prisma.user.findMany();
+  e.json(200, users);
 };
