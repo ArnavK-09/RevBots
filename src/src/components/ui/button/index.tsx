@@ -1,7 +1,11 @@
 // import
 import { component$ } from "@builder.io/qwik";
 
-// log in page
+// Ui general Button
 export default component$(() => {
-  return <>Login</>;
+  return (
+    <>
+      <button type="submit">Todo</button>
+    </>
+  );
 });

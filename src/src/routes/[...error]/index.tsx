@@ -9,7 +9,7 @@ export default component$(() => {
     <>
       <div class="h-screen w-screen overflow-hidden flex items-center">
         <div class="mx-auto text-center">
-          <h1 class="font-extrabold text-8xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-indigo-600 tracking-widest">
+          <h1 class="font-extrabold text-8xl tracking-widest">
             <GradientText text="404" />
           </h1>
           <a href="/">

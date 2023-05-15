@@ -15,7 +15,7 @@ export default component$(() => {
         </div>
         <div class="text-right flex gap-x-4 overflow-x-scroll">
           <Link
-            href="/@me"
+            href="/auth/login"
             class="fill-none w-8 h-8 rounded-full p-px hover:bg-white/20 stroke-white"
           >
             <ProfileIcon />

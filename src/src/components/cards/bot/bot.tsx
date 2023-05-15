@@ -27,9 +27,11 @@ export default component$(({ name, id, description, votes }: Props) => {
           </div>
           <div>
             <Link class="select-none" href={`/@${id}`}>
-              <h3 class="text-2xl font-medium text-red-700">{name}</h3>
+              <h3 class="text-2xl capitalize font-medium text-red-700">
+                {name}
+              </h3>
               <p class="text-sm font-bold text-gray-400">71637, 4837</p>
-            </Link>{" "}
+            </Link>
           </div>
         </div>
 
@@ -39,8 +41,8 @@ export default component$(({ name, id, description, votes }: Props) => {
 
         <div class="gap-x-1 text-center mt-4 grid w-full grid-cols-5">
           <a
-            target={`/@${id}/invite`}
-            href="/"
+            href={`/@${id}/invite`}
+            target="_blank"
             class="hover:scale-105 hover:z-20 hover:shadow-lg col-span-2 bg-red-200/10 py-3 text-white/70 rounded-lg"
           >
             Invite

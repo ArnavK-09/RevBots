@@ -4,24 +4,45 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { PrismaClient } from "@prisma/client";
 
-// get bot details
-export const useGetBotDetails = routeLoader$(async ({ params, status }) => {
-  const botUsername = parseInt(params["botname"], 10);
+// components
+import BotpageHeader from "@/components/botpage/header/header";
+import BotpageDescription from "@/components/botpage/description/description";
+import HeroSearch from "@/components/home/hero/hero";
+
+// load bot data
+const useBotData = routeLoader$(async ({ params, fail }) => {
+  // init
   const prisma = new PrismaClient();
-  const bot = await prisma.bot.findUnique({ where: { username: userId } });
-  if (!user) {
-    status(404);
+
+  // fetch
+  try {
+    const botFetched = await prisma.bot.findUnique({
+      where: {
+        username: params.botname,
+      },
+    });
+
+    if (botFetched == null) {
+      return fail(404, { message: "Bot not found" });
+    }
+    return botFetched;
+  } catch (e) {
+    return fail(500, { message: "Unexpected Error Occurred" });
   }
-  return bot;
 });
 
 // bot view page
 export default component$(() => {
-  const bot = useGetBotDetails();
-
+  // get bot
+  const bot = useBotData();
   return (
     <>
-      <h1>Bot {bot.value} </h1>
+      <section class="my-5">
+        <HeroSearch />
+        <BotpageHeader />
+        {JSON.stringify(bot.value)}
+        <BotpageDescription markdown="## hello _hi_" />
+      </section>
     </>
   );
 });

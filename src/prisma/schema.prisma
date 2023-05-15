@@ -11,9 +11,47 @@ datasource db {
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
+  id         String   @id @default(uuid()) @db.Uuid
   username   String   @unique
   identifier String   @unique
   verified   Boolean  @default(false)
   createdAt  DateTime @default(now())
+  bots       Bot[]
+}
+
+model Bot {
+  id               Int       @id @default(autoincrement())
+  owner            User      @relation(fields: [ownerName], references: [username])
+  ownerName        String
+  avatar           String
+  votes            Int       @default(0)
+  description      String
+  shortDescription String?
+  tags             Tag[]
+  website          String?
+  support          String?
+  github           String?
+  username         String    @unique
+  identifier       String    @unique
+  publishedOn      DateTime  @default(now())
+  prefix           String
+  status           BotStatus
+  promoted         Boolean   @default(false)
+}
+
+enum Tag {
+  GENERAL
+  ANIME
+}
+
+enum BotStatus {
+  ACTIVE
+  BANNED
+  PENDING
+}
+
+model Request {
+  code   String  @id @unique @default("CODE")
+  status Boolean @default(false)
+  user   String  @unique
 }
