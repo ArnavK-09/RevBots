@@ -40,4 +40,4 @@ readdirSync("./events").forEach((file) => {
   client.on(event.name, (...args) => event.run(client, ...args));
 });
 
-client.loginBot();
+client.loginBot(process.env["BOT_TOKEN"]);
