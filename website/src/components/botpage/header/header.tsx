@@ -3,7 +3,7 @@ import { component$ } from "@builder.io/qwik";
 
 // components
 import BotPageActions from "@/components/botpage/actions/actions";
-import { VoteIcon } from "@/icons";
+
 // header for @bot page
 export default component$(() => {
   return (

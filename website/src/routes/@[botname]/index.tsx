@@ -2,7 +2,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { PrismaClient } from "@prisma/client";
+import DB from "@/plugins/prisma";
 
 // components
 import BotpageHeader from "@/components/botpage/header/header";
@@ -10,9 +10,9 @@ import BotpageDescription from "@/components/botpage/description/description";
 import HeroSearch from "@/components/home/hero/hero";
 
 // load bot data
-const useBotData = routeLoader$(async ({ params, fail }) => {
+export const useBotData = routeLoader$(async ({ params, fail }) => {
   // init
-  const prisma = new PrismaClient();
+  const prisma = DB;
 
   // fetch
   try {

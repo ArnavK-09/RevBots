@@ -27,7 +27,7 @@ export default component$(({ heading, description }: Props) => {
       </div>
       <div class="pt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
         {tempData.map((botProps) => (
-          <BotCard {...botProps} />
+          <BotCard {...botProps} key={botProps.id} />
         ))}
       </div>
     </section>

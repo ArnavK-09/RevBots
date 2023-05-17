@@ -3,7 +3,6 @@ import {
   component$,
   Slot,
   createContextId,
-  useContext,
   useContextProvider,
   useStore,
 } from "@builder.io/qwik";
@@ -11,7 +10,7 @@ import { routeLoader$, useLocation } from "@builder.io/qwik-city";
 
 // components
 import Navbar from "@/components/layout/navbar/navbar";
-import MobileMenu from "@/components/layout/menu/menu";
+// import MobileMenu from "@/components/layout/menu/menu";
 import LoadingBar from "@/components/ui/loadingbar/loadingbar";
 import { RefreshIcon as LoadingIcon } from "@/icons";
 

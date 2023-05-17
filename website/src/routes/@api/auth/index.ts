@@ -1,13 +1,12 @@
 // imports
 import type { RequestHandler } from "@builder.io/qwik-city";
-import { PrismaClient } from "@prisma/client";
-import axios from "axios";
-import crypto from "crypto";
+import cryptoJS from "crypto-js";
 import RevoltAPI, { secret } from "@/plugins/axios";
+import DB from "@/plugins/prisma";
 
 /* Helper functions*/
 // generate unique
-export const genCode = (): String => {
+export const genCode = (): string => {
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let uniqueId = "";
@@ -21,33 +20,30 @@ export const genCode = (): String => {
   return uniqueId;
 };
 // JWA
-function encrypt(plaintext: string) {
+export const encrypt = (plaintext: string): string => {
   try {
-    const cipher = crypto.createCipher("aes-256-cbc", secret);
-    let encrypted = cipher.update(plaintext, "utf8", "hex");
-    encrypted += cipher.final("hex");
-    return encrypted;
+    const result = cryptoJS.AES.encrypt(plaintext, secret).toString();
+    return result;
   } catch (err) {
-    return null;
+    return plaintext;
   }
-}
-function decrypt(ciphertext: string) {
+};
+export const decrypt = (ciphertext: string): string => {
   try {
-    const decipher = crypto.createDecipher("aes-256-cbc", secret);
-    let decrypted = decipher.update(ciphertext, "hex", "utf8");
-    decrypted += decipher.final("utf8");
-    return decrypted;
+    const bytes = CryptoJS.AES.decrypt(ciphertext, secret);
+    const result = JSON.parse(bytes.toString(cryptoJS.enc.Utf8));
+    return result;
   } catch (err) {
-    return null;
+    return ciphertext;
   }
-}
+};
 
 /* Auth Rest */
 
 // GET /api/auth
 export const onGet: RequestHandler = async (e) => {
   /* Verify user login, bot verified */
-  const prisma = new PrismaClient();
+  const prisma = DB;
   const code = e.query.get("code");
   // get code
   if (!code) {
@@ -61,8 +57,8 @@ export const onGet: RequestHandler = async (e) => {
         code: code,
       },
     })
-    .catch((err) => {
-      e.json(500, { error: true, message: e.message });
+    .catch(() => {
+      e.json(500, { error: true, message: "Unable to contact Database" });
       return;
     });
 
@@ -91,26 +87,26 @@ export const onGet: RequestHandler = async (e) => {
   // if user not exist
   if (!user) {
     // fetch revolt user data
-    const revoltUserData = await RevoltAPI.get(
+    const revoltUserData: any = await RevoltAPI.get(
       `https://api.revolt.chat/users/${requestOnDB.user}`
-    ).catch((err) => {
+    ).catch(() => {
       e.json(500, { error: true, message: "Unable to fetch revolt profile" });
       return;
     });
 
     // create user
-    const userData = {
+    const userData: any = {
       identifier: requestOnDB.user,
       username: revoltUserData.data.username,
     };
     const createdUser = await prisma.user
       .create({ data: userData })
-      .catch((err) => {
+      .catch(() => {
         e.json(500, { error: true, message: "Error in creating new user" });
         return;
       });
 
-    // return new user
+    // @ts-ignore return new user
     e.cookie.set("revAuth", encrypt(createdUser.id), {
       httpOnly: true,
       maxAge: 20 * 24 * 60 * 60,
@@ -147,8 +143,8 @@ export const onGet: RequestHandler = async (e) => {
 // POST /api/auth
 export const onPost: RequestHandler = async (e) => {
   /* Begin login */
-  const prisma = new PrismaClient();
-  const body = await e.parseBody();
+  const prisma = DB;
+  const body: any = await e.parseBody();
   const id = body.identifier.toUpperCase().trim();
 
   // validate
@@ -168,7 +164,9 @@ export const onPost: RequestHandler = async (e) => {
       e.json(201, pendingRequest);
       return;
     }
-  } catch (err) {}
+  } catch (e) {
+    console.log(e);
+  }
 
   // create request
   try {
@@ -192,10 +190,10 @@ export const onPost: RequestHandler = async (e) => {
 // PUT /api/auth
 export const onPut: RequestHandler = async (e) => {
   /* Continue login  i.e. Verify token (by bot) */
-  const body = await e.parseBody();
+  const body: any = await e.parseBody();
   const code = body.code;
   const userID = body.identifier;
-  const prisma = new PrismaClient();
+  const prisma = DB;
 
   // validate
   if (!body || !code || !userID) {
@@ -206,15 +204,15 @@ export const onPut: RequestHandler = async (e) => {
     return;
   }
 
-  // get request 
+  // get request
   const requestOnDB = await prisma.request
     .findUnique({
       where: {
         code: code,
       },
     })
-    .catch((err) => {
-      e.json(500, { error: true, message: e.message });
+    .catch(() => {
+      e.json(500, { error: true, message: "Failed to contact database" });
       return;
     });
 
@@ -225,31 +223,39 @@ export const onPut: RequestHandler = async (e) => {
       message: "Unable to fetch request with code provided",
     });
     return;
-  } 
-
-  // check user 
-  if(userID.toUpperCase().trim().toString() !== requestOnDB.user.toString().trim().toUpperCase()) {
-    e.json(400, {
-      error: true, message:"You are not the one who created that request"
-    })
-return
   }
 
-// all fine 
-await prisma.request.update({
-  where: {
-    code: code,
-  },
-  data: {
-    status: true,
-  },
-}).then(data => {
-  e.json(200, {
-    success: true, data
-  })
-  return
-}).catch((err) => {
-      e.json(500, { error: true, message: e.message });
+  // check user
+  if (
+    userID.toUpperCase().trim().toString() !==
+    requestOnDB.user.toString().trim().toUpperCase()
+  ) {
+    e.json(400, {
+      error: true,
+      message: "You are not the one who created that request",
+    });
+    return;
+  }
+
+  // all fine
+  await prisma.request
+    .update({
+      where: {
+        code: code,
+      },
+      data: {
+        status: true,
+      },
+    })
+    .then((data) => {
+      e.json(200, {
+        success: true,
+        data,
+      });
+      return;
+    })
+    .catch(() => {
+      e.json(500, { error: true, message: "Unexpected error occurred" });
       return;
     });
 };

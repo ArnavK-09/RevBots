@@ -5,12 +5,12 @@ import { PrismaClient } from "@prisma/client";
 
 // create bot
 export const useAddBot = routeAction$(
-  async (data) => {
+  async (data: any) => {
     const prisma = new PrismaClient();
-    const bot = await prisma.Bot.create({
-      data,
+    const bot = await prisma.bot.create({
+      data: data,
     });
-    return user;
+    return bot;
   },
   zod$({
     username: z.string(),

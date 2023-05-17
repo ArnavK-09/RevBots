@@ -2,7 +2,7 @@
 import { component$, useStore, $, useContext } from "@builder.io/qwik";
 import axios from "axios";
 import { useNavigate } from "@builder.io/qwik-city";
-import { GlobalStateCTX } from "@/routes/layout.tsx";
+import { GlobalStateCTX } from "@/routes/layout";
 
 // log in page
 export default component$(() => {
@@ -53,7 +53,7 @@ export default component$(() => {
     globalState.loading = true;
     await axios
       .get(`/@api/auth?code=${loginState.code}`)
-      .then((e) => {
+      .then(() => {
         loginState.done = true;
         globalState.loading = false;
       })
@@ -82,7 +82,7 @@ export default component$(() => {
           </h3>
           <form preventdefault:submit onSubmit$={handleLogin}>
             <input
-              bind:value={loginState.identifier}
+              //bind:value={loginState.identifier}
               disabled={!(loginState.code == null) || globalState.loading}
               onInput$={(_, el) => (loginState.identifier = el.value)}
               class="py-3 my-3 px-4 block w-full bg-white/10 shadow-md outline-none rounded-md"

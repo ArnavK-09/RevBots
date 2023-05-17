@@ -24,7 +24,7 @@ export default component$(() => {
         <SearchBar />
         <div class="mt-5 gap-x-4 overflow-x-scroll flex flex-scroll">
           {Tags.map((tag) => (
-            <Tag label={tag} />
+            <Tag label={tag} key={tag} />
           ))}
         </div>
       </div>

@@ -30,7 +30,12 @@ export default component$(({ name, id, description, votes }: Props) => {
               <h3 class="text-2xl capitalize font-medium text-red-700">
                 {name}
               </h3>
-              <p class="text-sm font-bold text-gray-400 flex"><span class="stroke-red-700 h-4 w-4 mr-1"><StatsIcon /></span>N/A</p>
+              <p class="text-sm font-bold text-gray-400 flex">
+                <span class="stroke-red-700 h-4 w-4 mr-1">
+                  <StatsIcon />
+                </span>
+                N/A
+              </p>
             </Link>
           </div>
         </div>

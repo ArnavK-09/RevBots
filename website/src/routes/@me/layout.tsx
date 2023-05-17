@@ -2,9 +2,8 @@
 import { component$, Slot } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 
-export const useProtectedRoute = routeLoader$(async (e, args) => {
+export const useProtectedRoute = routeLoader$(async (e) => {
   const user = "i";
-  console.log(args);
   if (!user) {
     throw e.redirect(302, "/auth/login");
   }
@@ -12,10 +11,9 @@ export const useProtectedRoute = routeLoader$(async (e, args) => {
 });
 
 export default component$(() => {
-  useProtectedRoute(true);
+  useProtectedRoute();
   return (
     <>
-      {" "}
       <Slot />
     </>
   );
