@@ -1,16 +1,16 @@
 // imports
 import { component$ } from "@builder.io/qwik";
 import { routeAction$, zod$, z, Form } from "@builder.io/qwik-city";
-import { PrismaClient } from "@prisma/client";
+import DB from "@/plugins/prisma";
 
 // create bot
 export const useAddBot = routeAction$(
   async (data: any) => {
-    const prisma = new PrismaClient();
+    const prisma = DB;
     const bot = await prisma.bot.create({
       data: data,
     });
-    return bot;
+    return bot; 
   },
   zod$({
     username: z.string(),

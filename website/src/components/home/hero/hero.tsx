@@ -1,6 +1,6 @@
 // imports
 import { component$ } from "@builder.io/qwik";
-import { Tag as TagList } from "@prisma/client";
+import { Tag as TagList } from "@/plugins/prisma";
 
 // components
 import Tag from "@/components/ui/tag/tag";

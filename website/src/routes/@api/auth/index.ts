@@ -119,7 +119,7 @@ export const onGet: RequestHandler = async (e) => {
           user: requestOnDB.user,
         },
       })
-      .catch((err) => console.log(err));
+      .catch((err: any) => console.log(err));
 
     return;
   }
@@ -136,7 +136,7 @@ export const onGet: RequestHandler = async (e) => {
         user: requestOnDB.user,
       },
     })
-    .catch((err) => console.log(err));
+    .catch((err: any) => console.log(err));
   e.json(200, user);
 };
 
@@ -247,7 +247,7 @@ export const onPut: RequestHandler = async (e) => {
         status: true,
       },
     })
-    .then((data) => {
+    .then((data: any) => {
       e.json(200, {
         success: true,
         data,
