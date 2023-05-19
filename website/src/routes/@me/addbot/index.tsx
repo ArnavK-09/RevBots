@@ -1,6 +1,6 @@
 // imports
-import { component$ } from "@builder.io/qwik";
-import { routeAction$, zod$, z, Form } from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";/*
+import { Form } from "@builder.io/qwik-city";/
 import DB from "@/plugins/prisma";
 
 // create bot
@@ -10,21 +10,23 @@ export const useAddBot = routeAction$(
     const bot = await prisma.bot.create({
       data: data,
     });
-    return bot; 
+    return bot;
   },
   zod$({
     username: z.string(),
     userid: z.string(),
   })
-);
+);*/
 
 // add bot
 export default component$(() => {
-  const createUserAction = useAddBot();
+ /* const createUserAction = $(() => {
+    console.log("ytofo ")
+  })*/
   return (
     <section class="text-gray-400">
-      <h1>Create User</h1>
-      <Form action={createUserAction}>
+      <h1>Create User</h1>{/*
+      <Form onSubmit$={createUserAction}>
         <label>
           Name
           <input
@@ -45,7 +47,7 @@ export default component$(() => {
         <div>
           <h2>User created successfully!</h2>
         </div>
-      )}
+      )}*/}
     </section>
   );
 });

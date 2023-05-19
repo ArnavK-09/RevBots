@@ -1,6 +1,6 @@
 // imports
 import type { RequestHandler } from "@builder.io/qwik-city";
-import { Tag as TagList } from "@prisma/client";
+import { Tag as TagList } from "@/plugins/prisma";
 
 // GET /api/tags
 export const onGet: RequestHandler = async (e) => {
