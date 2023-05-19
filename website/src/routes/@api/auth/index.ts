@@ -51,7 +51,8 @@ export const onGet: RequestHandler = async (e) => {
     return;
   }
   // find request
-  const requestOnDB = await prisma.request
+  const db = await prisma()
+  const requestOnDB = await db.request
     .findUnique({
       where: {
         code: code,

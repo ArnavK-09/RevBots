@@ -1,3 +1,6 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
+
 /*imports /*
 import { PrismaClient, Tag } from "@prisma/client";
 /*
@@ -39,7 +42,7 @@ export default prisma;
 if (typeof window === "undefined") {
      prisma = new PrismaClient()
 }
-*/
+*//*
 import { PrismaClient } from "@prisma/client";
 
 let prisma: PrismaClient  = new PrismaClient();
@@ -47,5 +50,35 @@ let prisma: PrismaClient  = new PrismaClient();
 if (typeof window === "undefined") {
   prisma = new PrismaClient();
   }
-export default prisma;
+export default prisma;*/
+// app/utils/prisma.server.ts
+import { PrismaClient } from '@prisma/client'
+import { server$ } from '@builder.io/qwik-city';
+// eslint-disable-next-line
+const  prisma = () => server$( ()=> { return new PrismaClient()}) /*""
+declare let globalThis : any  /*"" {
+  let __db: PrismaClient | undefined
+
+}*/
+/*""
+  if (process.env.NODE_ENV === 'production') {
+    prisma = new PrismaClient()
+     /* prisma.$connect()
+      } else {
+        if (!global.__db) {
+            global.__db = new PrismaClient()
+                global.__db.$connect()
+                  }
+                    prisma = global.__db
+                    }*/
+/*eslint no-var: "error"*/
+/*eslint-env es6
+ 
+const risma = () => {
+  return new Promise(async (resolve ) => {
+    resolve(await prisma().resolve())
+  })
+}
+const db = */
+                    export default prisma 
 export const Tag = {}
