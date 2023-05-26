@@ -1,24 +1,13 @@
 /* Custom font */
-@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 
-/**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
- */
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-
-/* Global Css */
+/* whole body */
 body {
-  font-family: "Hammersmith One", sans-serif;
-  scroll-behavior: smooth;
+	font-family: 'Hammersmith One', sans-serif;
+	scroll-behavior: smooth;
 }

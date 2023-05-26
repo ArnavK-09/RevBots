@@ -3,12 +3,11 @@
 
 generator client {
   provider = "prisma-client-js"
-  // output   = "../.prisma/client"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:2W8kAGMao8yKA0RQhDbH@containers-us-west-113.railway.app:6965/railway?schema=public"
+  url      = "postgres://jajnumxb:khiTd_MVGuNwhizpzKLr-Yqw0NnMIj7V@silly.db.elephantsql.com/jajnumxb"
 }
 
 model User {
