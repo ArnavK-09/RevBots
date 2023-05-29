@@ -3,7 +3,7 @@
 	export let label: string = 'Button';
 	export let type: 'button' | 'submit' = 'button';
 	export let disabled: boolean = false;
-	export let func: () => any;
+	export let func: () => any = () => {};
 </script>
 
 <button

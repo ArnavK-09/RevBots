@@ -2,7 +2,7 @@
 	<div
 		class="p-3 shadow-md border-2 border-[#141414]/80 bg-[#141414]/60 rounded-lg flex w-full justify-between"
 	>
-		<a href="/">
+		<a href="/" data-sveltekit-reload>
 			<div class="h-6 w-6 stroke-white rounded-full p-1 scale-150 hover:bg-white/10">🔃</div>
 		</a>
 		<div>

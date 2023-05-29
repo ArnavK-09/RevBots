@@ -5,3 +5,6 @@ import { writable } from 'svelte/store';
 
 // site loading
 export const siteLoading = writable(false);
+
+// logged user
+export const user = writable(null);

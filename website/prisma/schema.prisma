@@ -2,12 +2,13 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
   provider = "postgresql"
-  url      = "postgres://jajnumxb:khiTd_MVGuNwhizpzKLr-Yqw0NnMIj7V@silly.db.elephantsql.com/jajnumxb"
+  url      = env("DB_URL")
 }
 
 model User {
@@ -21,8 +22,8 @@ model User {
 
 model Bot {
   id               Int       @id @default(autoincrement())
-  owner            User      @relation(fields: [ownerName], references: [username])
-  ownerName        String
+  owner            User      @relation(fields: [ownerId], references: [id])
+  ownerId          String    @db.Uuid
   avatar           String
   votes            Int       @default(0)
   description      String
@@ -30,18 +31,22 @@ model Bot {
   tags             Tag[]
   website          String?
   support          String?
-  github           String?
+  github           String
+  invite           String
   username         String    @unique
   identifier       String    @unique
   publishedOn      DateTime  @default(now())
   prefix           String
-  status           BotStatus
+  status           BotStatus @default(PENDING)
   promoted         Boolean   @default(false)
 }
 
 enum Tag {
   GENERAL
   ANIME
+  GAME
+  ECONOMY
+  MODERATION
 }
 
 enum BotStatus {

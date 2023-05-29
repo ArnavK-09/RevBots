@@ -1,18 +1,10 @@
-// ping command
-const PingCommand = {
+// $rb ping
+module.exports = {
   name: "ping",
-  description: "Check if the bot is online and responsive",
-  usage: ["ping"],
-  run: async function (client, message) {
-    console.log("herelso")
-    return await message.reply(
-      {
-        content: `:ping_pong: Pong!s\`\nRoundtrip: \`${Date.now() - message.createdAt}ms\``,
-      },
-      false
-    );
+  description: "Ping the bot and receive a response time",
+  execute: async ({ message }) => {
+    await message.reply({
+      content: `🏓 Bot Ping: **${Date.now() - message.createdAt}ms**`,
+    });
   },
 };
-
-// export
-module.exports = PingCommand;

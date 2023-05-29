@@ -8,10 +8,9 @@ export const GET = (async ({ params }: any) => {
 	const selectedBot = await DB.bot.findUnique({
 		// where: { OR: [{ username: queryID }, { identifier: queryID }] },
 		where: {
-			identifier: params.id
+			username: params.id
 		}
 	});
-
 	if (!selectedBot) {
 		throw error(404, {
 			message: 'Bot Not Found'

@@ -1,8 +1,9 @@
 // imports
-import { json } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 // GET /api/bots
-export const GET = (() => {
-	return json({ hmm: true });
+export const GET = (({ cookies }) => {
+	cookies.delete('revAuth');
+	throw redirect(303, '/');
 }) satisfies RequestHandler;

@@ -8,7 +8,7 @@
 	import SearchBar from '$lib/components/Hero/Searchbar.svelte';
 
 	// tags list
-	const Tags = ["Test"]
+	const Tags = ['Test'];
 </script>
 
 <section class="px-5 py-14">

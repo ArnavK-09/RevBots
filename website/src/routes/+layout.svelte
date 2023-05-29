@@ -4,9 +4,12 @@
 
 	// imports
 	import { siteLoading } from '$lib/store';
+	import { onMount } from 'svelte';
+	import { user } from '$lib/store';
 
 	// components
 	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	// variables
 	let _loading: boolean;
@@ -14,6 +17,15 @@
 	// state values
 	siteLoading.subscribe((value) => {
 		_loading = value;
+	});
+
+	// onMount
+	onMount(async () => {
+		const res = await fetch(`/api/me`);
+		const loggedUser = await res.json();
+		if (loggedUser.user) {
+			user.set(loggedUser.user);
+		}
 	});
 </script>
 
@@ -37,4 +49,4 @@
 </div>
 
 <!-- Footer -->
-<footer>Footer</footer>
+<footer><Footer /></footer>

@@ -66,7 +66,7 @@
 	};
 </script>
 
-<div class="items-center h-screen my-10">
+<section class="items-center h-screen my-10">
 	<!-- Login form -->
 	<div class="mx-auto px-8 text-center">
 		<h1 class="font-extrabold mb-14 text-3xl tracking-widest">Please login your account</h1>
@@ -108,4 +108,4 @@
 			<Button type="button" label="Enjoy 🎉" func={async () => await goto('/')} />
 		</div>
 	{/if}
-</div>
+</section>

@@ -1,14 +1,16 @@
 {
-  "name": "revbots-bot",
-  "version": "0.0.2",
-  "description": "A support bot for RevBots website ",
-  "main": "client.js",
+  "name": "rev-bot",
+  "version": "0.1.0",
+  "description": "Bot for Rev Bots app",
+  "main": "index.js",
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node client.js"
+    "test": "npx node --watch index.js",
+    "start": "node index.js"
   },
   "author": "ArnavK-09",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "@elara-services/eval-helper": "^1.1.1",
     "revolt.js": "^7.0.0-beta.4"
   }
 }

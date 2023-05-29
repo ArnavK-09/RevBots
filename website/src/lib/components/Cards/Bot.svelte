@@ -1,9 +1,9 @@
 <script lang="ts">
 	// props
-	export let name: string = 'Bot Name';
 	export let id: string;
 	export let votes: number = 0;
-	export let description: string = 'No Description Available...';
+	export let description: string | null;
+	export let avatar: string = '/logo.png';
 </script>
 
 <div
@@ -12,12 +12,12 @@
 	<div class="pt-4 text-gray-500 w-full">
 		<div class="flex gap-x-3">
 			<div>
-				<img src="/favicon.png" alt={name} class="h-16 w-16 sm:h-10 sm:w-10 rounded-full" />
+				<img src={avatar} alt={`${id} Pfp`} class="h-16 w-16 sm:h-10 sm:w-10 rounded-full" />
 			</div>
 			<div>
 				<a class="select-none" href={`/@${id}`}>
 					<h3 class="text-2xl capitalize font-medium text-red-700">
-						{name}
+						{id}
 					</h3>
 					<p class="text-sm font-bold text-gray-400 flex">
 						<span class="stroke-red-700 h-4 w-4 mr-1"> 🧾 </span>
@@ -28,28 +28,19 @@
 		</div>
 
 		<p class="mx-1 mt-4 text-sm sm:block">
-			{description}
+			{description ?? 'No Description Available...'}
 		</p>
 
 		<div class="gap-x-1 text-center mt-4 grid w-full grid-cols-5">
 			<a
 				href={`/@${id}/invite`}
 				target="_blank"
-				class="hover:scale-105 hover:z-20 hover:shadow-lg col-span-2 bg-red-200/10 py-3 text-white/70 rounded-lg"
+				class="col-span-2 bg-red-200/10 py-3 text-white/70 rounded-lg"
 			>
 				Invite
 			</a>
-			<a
-				href={`/@${id}`}
-				class="hover:scale-105 hover:z-20 hover:shadow-lg col-span-2 bg-red-200/10 py-3 text-white/70 rounded-lg"
-			>
-				View
-			</a>
-			<button
-				class="hover:scale-105 hover:z-20 hover:shadow-lg bg-red-200/10 py-3 text-white/70 rounded-lg"
-			>
-				♻️
-			</button>
+			<a href={`/@${id}`} class="col-span-2 bg-red-200/10 py-3 text-white/70 rounded-lg"> View </a>
+			<button class="bg-red-100/10 py-3 text-white/70 rounded-lg"> ♻️ </button>
 		</div>
 	</div>
 	<div class="absolute right-0">
