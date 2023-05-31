@@ -4,7 +4,7 @@ import DB from '$lib/server/database';
 import { error, json } from '@sveltejs/kit';
 
 // GET /api/search/bots?query
-export const GET = (async ({ url, cookies }: any) => {
+export const GET = (async ({ url }) => {
 	/* Search bot by username or identifier */
 	const query = url.searchParams.get('query')?.replace(' ', '');
 	// get code

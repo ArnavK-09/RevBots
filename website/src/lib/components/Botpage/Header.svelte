@@ -3,7 +3,7 @@
 	import BotPageActions from '$lib/components/Botpage/Actions.svelte';
 
 	// props
-	export let name = 'Bot Name';
+	export let name = 'Revolt Name';
 	export let description = 'Bot Description';
 	export let id = 0;
 	export let avatar = '/favicon.png';
@@ -22,7 +22,7 @@
 			<h1 class="text-5xl font-bold tracking-wide">{name}</h1>
 			<span class="text-xs opacity-50"> Server ID: #{id}</span>
 			{#if description} <p class="text-gray-400 text-lg my-2">{description}</p>{/if}
-			<BotPageActions />
+			<BotPageActions bot={name} />
 		</div>
 	</div>
 </div>

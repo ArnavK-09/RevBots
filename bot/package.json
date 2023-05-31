@@ -1,16 +1,17 @@
 {
-  "name": "rev-bot",
-  "version": "0.1.0",
-  "description": "Bot for Rev Bots app",
+  "name": "revbots-bot",
+  "version": "0.0.9",
+  "description": "Bot for Rev Bots!",
   "main": "index.js",
   "scripts": {
-    "test": "npx node --watch index.js",
+    "test": "npx nodemon index.js",
     "start": "node index.js"
   },
   "author": "ArnavK-09",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "@elara-services/eval-helper": "^1.1.1",
+    "axios": "^1.4.0",
     "revolt.js": "^7.0.0-beta.4"
   }
 }

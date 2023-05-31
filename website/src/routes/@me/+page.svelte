@@ -6,43 +6,40 @@
 	// components
 	import Button from '$lib/components/UI/Button.svelte';
 	import BotCard from '$lib/components/Cards/Bot.svelte';
-
-	// logged user
-	let loggedUser;
-	user.subscribe((value) => {
-		loggedUser = value;
-	});
+	import MetaHead from '$lib/components/Head.svelte';
 
 	// user bots
-	let bots = [];
+	let bots: any[] = [];
 
 	// onMount
 	onMount(async () => {
-    try{
-		const res = await fetch(`/api/me/bots`);
-		const data = await res.json();
+		try {
+			const res = await fetch(`/api/me/bots`);
+			const data = await res.json();
 
-		if (data) {
-			bots = data;
-		}}catch{
-      return 
-    }
+			if (data) {
+				bots = data;
+			}
+		} catch {
+			return;
+		}
 	});
 </script>
 
-<section class="py-10 h-screen px-2">
+<MetaHead title={$user ? $user.username : 'Not logged in'} />
+<section class="py-10 h-screen px-2 md:px-16">
 	<div class="flex my-3 justify-center items-center">
 		<img
-			class="rounded-full h-28 w-28 md:h-48 md:w-48 shadow-black shadow-2xl"
-			src="/favicon.png"
+			class="rounded-full bg-black h-28 w-28 md:h-48 md:w-48 shadow-black shadow-2xl"
+			src={$user ? $user.avatar : '/logo.png'}
 			alt="Profile Pic"
 		/>
 	</div>
 	<div class="text-center">
 		<h2 class="font-semibold text-2xl">
-			{loggedUser ? loggedUser.username : 'Not logged in'}
+			{$user ? $user.username : 'Not logged in'}
 		</h2>
-		{#if loggedUser}
+		{#if $user}
 			<a href="/auth/logout" class="text-xs my-2 text-red-400 hover:underline">Logout?</a>
 		{/if}
 	</div>
@@ -53,12 +50,12 @@
 		<p class="p-2 rounded-lg bg-black/70 text-1xl md:text-3xl">No Bio Set...</p>
 	</div>
 	<a class="my-5" href="/@me/addbot">
-		<Button label="Add Bot" />
+		<Button label="Add Your Bot" />
 	</a>
 	{#if bots.length > 0}
 		<div class="my-11">
 			<h2 class="text-3xl my-5 font-semibold text-center">Your Bots</h2>
-			<div class="mx-4 grid grid-cols-1 lg:grid-cols-2">
+			<div class="mx-4 grid grid-cols-1 md:grid-cols-2">
 				{#each Object.values(bots) as bot (bot.id)}
 					<BotCard
 						avatar={bot.avatar}

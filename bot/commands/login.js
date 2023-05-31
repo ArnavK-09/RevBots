@@ -1,6 +1,10 @@
+// imports
+const axios = require("axios");
+
 // $rb login [code]
 module.exports = {
   name: "login",
+  dm: false,
   description: "Login into website",
   execute: async ({ message, args }) => {
     // code
@@ -13,10 +17,15 @@ module.exports = {
     }
 
     // fetch
-    const req = await fetch("https://api.revolt.chat/");
+    const res = await axios.patch(`${process.env["API"]}/api/auth`, {
+      data: {
+        code,
+        identifier: message.author.id,
+      },
+    });
 
     // notify user if verified
-    if (req.status == 200) {
+    if (res.status == 200) {
       await message.reply({
         content: `✅ You're successfully verified login request. Kindly verify from website to continue....`,
       });

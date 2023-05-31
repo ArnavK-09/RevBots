@@ -17,6 +17,11 @@ export const load = (async ({ params }) => {
 		.catch(() => {
 			throw error(500, { message: 'Unable to contact database' });
 		});
+
+	// validate
+	if (!botOnDB) {
+		throw error(404, { message: 'Bot Not Found' });
+	}
 	// bot there
 	throw redirect(308, botOnDB.invite);
 }) satisfies PageServerLoad;

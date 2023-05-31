@@ -1,5 +1,4 @@
 // imports
-import CryptoJS from 'crypto-js';
 import { error, json } from '@sveltejs/kit';
 import DB from '$lib/server/database';
 import type { RequestHandler } from './$types';
@@ -117,9 +116,9 @@ export const GET = async ({ url, cookies }: any) => {
 				console.log(e);
 				throw error(403, { message: 'Unable to fetch revolt profile' });
 			});
-
 		// create user
 		const userData: any = {
+			avatar: `https://autumn.revolt.chat/avatars/${revoltUserData.data.avatar._id}/${revoltUserData.data.avatar.filename}`,
 			identifier: requestOnDB.user,
 			username: revoltUserData.data.username
 		};
@@ -160,68 +159,61 @@ export const GET = async ({ url, cookies }: any) => {
 	return json(user);
 };
 
-/* PUT /api/auth
-export const PUT = async (e) => {
-	/* Continue login  i.e. Verify token (by bot) 
-	const body: any = await e.parseBody();
+// PATCH /api/auth
+export const PATCH = async ({ request }: any) => {
+	/* verify request by bot */
+	const body = await request.json();
 	const code = body.code;
 	const userID = body.identifier;
-	const prisma = DB;
 
 	// validate
 	if (!body || !code || !userID) {
-		e.json(400, {
+		throw error(400, {
 			message: 'Invalid Params'
 		});
-		return;
 	}
 
 	// get request
-	const requestOnDB = await prisma.request
+	const requestOnDB = await DB.request
 		.findUnique({
 			where: {
-				code: code
+				code: code,
+				user: userID
 			}
 		})
 		.catch(() => {
-			e.json(500, {  message: 'Failed to contact database' });
-			return;
+			throw error(500, { message: 'Failed to contact database' });
 		});
 
 	// validate request
 	if (!requestOnDB) {
-		e.json(404, {
+		throw error(404, {
 			message: 'Unable to fetch request with code provided'
 		});
-		return;
 	}
 
-	// check user
-	if (userID.toUpperCase().trim().toString() !== requestOnDB.user.toString().trim().toUpperCase()) {
-		e.json(400, {
-			message: 'You are not the one who created that request'
+	// validate user
+	if (!(userID == requestOnDB.user)) {
+		throw error(401, {
+			message: 'User not same as request'
 		});
-		return;
 	}
 
-	// all fine
-	await prisma.request
+	// update request
+	await DB.request
 		.update({
 			where: {
-				code: code
+				code: code,
+				user: userID
 			},
 			data: {
 				status: true
 			}
 		})
-		.then((data: any) => {
-		return json({
-				success: true,
-				data
-			});
+		.then((data) => {
+			return json(data);
 		})
 		.catch(() => {
-			throw errorjson(500, { message: 'Unexpected error occurred' });
+			throw error(500, { message: 'Failed to update data on database' });
 		});
 };
-*/

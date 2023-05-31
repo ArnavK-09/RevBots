@@ -25,7 +25,7 @@ export const GET = (async ({ cookies }) => {
 				id: auth.toString()
 			}
 		})
-		.catch((e) => {
+		.catch(() => {
 			return json({ user: null });
 		});
 

@@ -21,9 +21,7 @@ client.once("ready", () => {
     jsFiles.forEach((file) => {
       const command = require(`./commands/${file}`);
       client.commands.set(command.name, command);
-      console.info(
-        `💡 \'${PREFIX + " " + file.split(".")[0]}\' Command Set...`
-      );
+      console.info(`💡 '${PREFIX + " " + file.split(".")[0]}' Command Set...`);
     });
   });
 
@@ -54,15 +52,23 @@ client.on("messageCreate", async (message) => {
 
   // Check if the command is owner-only
   if (command.ownerOnly == true && !owners.includes(message.author.id)) return;
+  // Check if the command is server-only
+  if (command.dm == false && !message.server) {
+    return message.channel.sendMessage(
+      `### 🚨 Can't run this command in bot direct-message, use command in RevBots server...`
+    );
+  }
 
   // Execute the command
+  message.channel.startTyping();
   try {
     await command.execute({ client, message, args });
   } catch (err) {
-    console.error(err);
     message.channel.sendMessage(
-      "🚨 An error occurred while executing that command."
+      `### 🚨 An error occurred while executing that command.\nError:\n\`\`\`bash\n${err.message}\n\`\`\``
     );
+  } finally {
+    message.channel.stopTyping();
   }
 });
 

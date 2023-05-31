@@ -2,7 +2,6 @@
 	// import
 	import { siteLoading } from '$lib/store';
 	import axios from 'axios';
-	import { goto } from '$app/navigation';
 
 	// components
 	import Button from '$lib/components/UI/Button.svelte';
@@ -105,7 +104,7 @@
 				<span class="font-thick text-gray-400 mx-px text-sm">Step3</span>
 				You are done now...
 			</h3>
-			<Button type="button" label="Enjoy 🎉" func={async () => await goto('/')} />
+			<a href="/" data-sveltekit-reload><Button type="button" label="Enjoy 🎉" /></a>
 		</div>
 	{/if}
 </section>

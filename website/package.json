@@ -1,7 +1,9 @@
 {
-	"name": "revbots",
-	"version": "0.0.1",
-	"private": true,
+	"name": "revbots-site",
+	"version": "0.1.1",
+	"description": "Website for Rev Bots!",
+	"author": "ArnavK-09",
+	"license": "ISC",
 	"scripts": {
 		"dev": "vite dev --host",
 		"build": "vite build",
@@ -12,10 +14,12 @@
 		"format": "prisma format && prisma validate && prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@iconify/svelte": "^3.1.3",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-vercel": "^3.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@types/crypto-js": "^4.1.1",
+		"@types/showdown": "^2.0.1",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
@@ -25,7 +29,7 @@
 		"postcss": "^8.4.23",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
-		"prisma": "^4.14.1",
+		"prisma": "^4.15.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tailwindcss": "^3.3.2",
@@ -35,7 +39,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@prisma/client": "^4.14.1",
+		"@prisma/client": "^4.15.0",
+		"@tailwindcss/forms": "^0.5.3",
 		"axios": "^1.4.0",
 		"crypto-js": "^4.1.1",
 		"dotenv": "^16.0.3",

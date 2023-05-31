@@ -1,8 +1,7 @@
 {
-  "name": "revbit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "revbots",
+  "version": "0.0.1",
+  "description": "Mono repo of RevBot's Bot and Website",
   "dependencies": {
     "acorn": "^8.8.2",
     "acorn-jsx": "^5.3.2",
@@ -122,17 +121,17 @@
     "zwitch": "^2.0.4"
   },
   "devDependencies": {
-    "node": "^20.2.0"
+    "node": "^20.2.0",
+    "release-it": "^15.10.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArnavK-09/RevBots.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "ArnavK-09",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ArnavK-09/RevBots/issues"

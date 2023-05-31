@@ -1,10 +1,10 @@
 <script lang="ts">
 	// Props
-	export let disabled: boolean = false;
-	export let required: boolean = true;
-	export let placeholder: string = 'Input...';
+	export let disabled = false;
+	export let required = true;
+	export let placeholder = 'Input...';
 	export let value: any;
-	export let label: string = '';
+	export let label = '';
 </script>
 
 <div class="my-3">
@@ -15,8 +15,8 @@
 		{disabled}
 		bind:value
 		rows="8"
-		class="py-3 px-4 block w-full bg-white/10 shadow-md outline-none rounded-md"
 		{placeholder}
+		class="py-3 border-0 focus:ring-0 px-4 block w-full bg-white/10 shadow-md rounded-md"
 		{required}
 	/>
 </div>

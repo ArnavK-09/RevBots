@@ -4,6 +4,7 @@
 	import BotpageDescription from '$lib/components/Botpage/Description.svelte';
 	import BotpageInfo from '$lib/components/Botpage/Info.svelte';
 	import HeroSearch from '$lib/components/Hero/index.svelte';
+	import BotpageOwner from '$lib/components/Botpage/Owner.svelte';
 
 	// imports
 	import type { PageData } from './$types';
@@ -12,14 +13,16 @@
 	export let data: PageData;
 </script>
 
-<section class="my-5">
+<MetaHead title={`Learn more about "${data.bot.username}" Revolt Bot...`} />
+<section class="my-5 md:px-16">
 	<HeroSearch />
 	<BotpageHeader
-		avatar={data.avatar}
-		description={data.shortDescription}
-		name={data.username}
-		id={data.id}
+		avatar={data.bot.avatar}
+		description={data.bot.shortDescription}
+		name={data.bot.username}
+		id={data.bot.id}
 	/>
-	<BotpageDescription markdown={data.description} />
-	<BotpageInfo {data} />
+	<BotpageDescription markdown={data.bot.description} />
+	<BotpageInfo data={data.bot} />
+	<BotpageOwner name={data.owner.username} />
 </section>

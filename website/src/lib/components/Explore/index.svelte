@@ -1,14 +1,13 @@
-<script>
+<script lang="ts">
 	// imports
 	import axios from 'axios';
 	import { onMount } from 'svelte';
 
 	// components
-	import BotFilters from '$lib/components/Explore/Filters.svelte';
 	import ExploreBots from '$lib/components/Explore/Bots.svelte';
 
 	// get bots
-	let bots = [];
+	let bots: any[] = [];
 	onMount(async () => {
 		await axios
 			.get('/api/bots')
@@ -20,6 +19,7 @@
 </script>
 
 <section>
-	<BotFilters />
+	<!-- <BotFilters /> -->
 	<ExploreBots {bots} description="Most voted revolt bots..." heading="Top Revolt Bots" />
+	<ExploreBots {bots} description="Newest revolt bots published..." heading="Newest Bots" />
 </section>

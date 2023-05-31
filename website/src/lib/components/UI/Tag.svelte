@@ -3,7 +3,7 @@
 	export let label = 'Tag';
 </script>
 
-<a href={`/search/tags/${label}`}>
+<a href={`/search?query=tag:${label}`}>
 	<div
 		class="px-2 capitalize align-middle hover:brightness-125 flex bg-red-700/20 text-xs py-1 md:text-sm rounded-lg"
 	>
