@@ -2,8 +2,10 @@ name: Check Bot Code Quality
 
 on:
   push:
+    paths: ["bot/**"]
     branches: ["*"]
   pull_request:
+    paths: ["bot/**"]
     branches: ["*"]
 
 jobs:
