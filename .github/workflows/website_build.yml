@@ -2,8 +2,10 @@ name: Build RevBot Site
 
 on:
   push:
+    paths: ["website/**"]
     branches: ["*"]
   pull_request:
+    paths: ["website/**"]
     branches: ["*"]
 
 jobs:
