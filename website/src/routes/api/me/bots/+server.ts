@@ -75,12 +75,18 @@ export const POST = (async ({ request, cookies }) => {
 		.catch(() => {
 			throw error(403, { message: 'Unable to fetch revolt bot' });
 		});
-	console.log(revoltBotData.data, bot.data);
+
+	// avatar
+	let avatar = '/logo.png';
+	if (revoltBotData.data.avatar) {
+		avatar = `https://autumn.revolt.chat/avatars/${revoltBotData.data.avatar._id}/${revoltBotData.data.avatar.filename}`;
+	}
+
 	// create bot
 	const botData = {
 		username: bot.data.username,
 		identifier: data.identifier,
-		avatar: `https://autumn.revolt.chat/avatars/${revoltBotData.data.avatar._id}/${revoltBotData.data.avatar.filename}`,
+		avatar: avatar,
 		description: data.longDescription,
 		shortDescription: data.shortDescription || undefined,
 		github: data.github,

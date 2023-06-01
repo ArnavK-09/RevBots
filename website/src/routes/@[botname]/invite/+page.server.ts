@@ -12,6 +12,9 @@ export const load = (async ({ params }) => {
 		.findUnique({
 			where: {
 				username: params.botname
+			},
+			select: {
+				invite: true
 			}
 		})
 		.catch(() => {

@@ -1,6 +1,6 @@
 // imports
 import type { LayoutServerLoad } from './$types';
-import { redirect } from '@sveltejs/kit';
+//import { redirect } from '@sveltejs/kit';
 // middleware
 export const load = ((ev) => {
 	// check

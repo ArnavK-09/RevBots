@@ -30,7 +30,7 @@ export const load = (async ({ url }) => {
 	}
 	query = query.replace(/tag:\w+\s?/, '').trim();
 	// Db query
-	let wQuery: any = {
+	const wQuery: any = {
 		username: {
 			mode: 'insensitive',
 			contains: query

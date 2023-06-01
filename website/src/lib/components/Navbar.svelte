@@ -15,14 +15,19 @@
 		</a>
 	</div>
 	<div class="text-right flex gap-x-4 overflow-x-scroll">
-		<a href="/@me" class="rounded-full p-px hover:bg-white/20">
+		<a aria-label="open_your_profile" href="/@me" class="rounded-full p-px hover:bg-white/20">
 			{#if $user}
 				<img alt="Logo" src={$user?.avatar} class="h-8 w-8 rounded-full shadow-lg bg-black" />
 			{:else}
 				<Icon icon="solar:user-broken" width={30} height={30} />
 			{/if}
 		</a>
-		<button on:click={() => nav.set(!$nav)} type="button" class="fill-white w-8 h-8 stroke-white">
+		<button
+			aria-label="open_navigation"
+			on:click={() => nav.set(!$nav)}
+			type="button"
+			class="fill-white w-8 h-8 stroke-white"
+		>
 			<Icon icon="ci:menu-alt-01" width={30} height={30} />
 		</button>
 	</div>

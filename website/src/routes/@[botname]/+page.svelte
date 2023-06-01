@@ -5,6 +5,7 @@
 	import BotpageInfo from '$lib/components/Botpage/Info.svelte';
 	import HeroSearch from '$lib/components/Hero/index.svelte';
 	import BotpageOwner from '$lib/components/Botpage/Owner.svelte';
+	import MetaHead from '$lib/components/Head.svelte';
 
 	// imports
 	import type { PageData } from './$types';

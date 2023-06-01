@@ -5,7 +5,7 @@
 	export let placeholder = 'Input...';
 	export let value: any;
 	export let label = '';
-	export let name: string = placeholder.replace(" ", "").toLowerCase();
+	export let name: string = placeholder.replace(' ', '').toLowerCase();
 </script>
 
 <div class="my-3">

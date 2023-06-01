@@ -79,8 +79,11 @@
 		<ul class="divide-y-2 divide-gray-500/40 text-center font-normal tracking-widest mt-14">
 			{#each links as link (link.name)}
 				<li>
-					<a on:click={() => nav.set(false)} href={link.url} class="my-8 md:my-10 inline-block"
-						>{link.name}</a
+					<a
+						aria-label={link.name.toLowerCase()}
+						on:click={() => nav.set(false)}
+						href={link.url}
+						class="my-8 md:my-10 inline-block">{link.name}</a
 					>
 				</li>
 			{/each}

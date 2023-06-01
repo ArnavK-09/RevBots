@@ -136,5 +136,7 @@
   "bugs": {
     "url": "https://github.com/ArnavK-09/RevBots/issues"
   },
-  "homepage": "https://github.com/ArnavK-09/RevBots#readme"
+  "homepage": "https://github.com/ArnavK-09/RevBots#readme",
+  "main": "index.js",
+  "keywords": []
 }
