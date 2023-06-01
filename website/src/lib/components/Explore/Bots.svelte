@@ -26,6 +26,7 @@
 				votes={bot.votes}
 				description={bot.shortDescription}
 				id={bot.username}
+				tags={bot.tags}
 			/>
 		{/each}
 	</div>

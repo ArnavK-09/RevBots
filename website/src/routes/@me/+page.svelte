@@ -55,13 +55,14 @@
 	{#if bots.length > 0}
 		<div class="my-11">
 			<h2 class="text-3xl my-5 font-semibold text-center">Your Bots</h2>
-			<div class="mx-4 grid grid-cols-1 md:grid-cols-2">
+			<div class="mx-4 gap-6 grid grid-cols-1 md:grid-cols-2">
 				{#each Object.values(bots) as bot (bot.id)}
 					<BotCard
 						avatar={bot.avatar}
 						votes={bot.votes}
 						description={bot.shortDescription}
 						id={bot.username}
+						tags={bot.tags}
 					/>
 				{/each}
 			</div>

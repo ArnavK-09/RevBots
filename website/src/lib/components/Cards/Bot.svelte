@@ -1,12 +1,14 @@
 <script lang="ts">
 	// imports
 	import Icon from '@iconify/svelte';
+	import Tag from '$lib/components/UI/Tag.svelte';
 
 	// props
 	export let id: string;
 	export let votes = 0;
 	export let description: string | null;
 	export let avatar = '/logo.png';
+	export let tags: string[] = [];
 </script>
 
 <div
@@ -31,6 +33,11 @@
 						N/A
 					</p>
 				</a>
+				<div class="flex flex-shrink scale-90">
+					{#each tags as tag}
+						<Tag label={tag} />
+					{/each}
+				</div>
 			</div>
 		</div>
 
