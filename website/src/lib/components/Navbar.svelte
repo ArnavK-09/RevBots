@@ -7,7 +7,7 @@
 </script>
 
 <nav
-	class="flex justify-between fixed px-4 h-16 w-full items-center top-0 bg-transparent z-20 shadow-sm"
+	class="flex justify-between fixed px-4 h-16 w-full items-center top-0 z-20"
 >
 	<div class="flex h-full">
 		<a href="/">

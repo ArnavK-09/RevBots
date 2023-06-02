@@ -16,6 +16,8 @@
 			<GradientText text={`Logout`} />
 		</h2>
 		<p class="text-3xl my-2 text-gray-400">Do You Really Wanna Logout?</p>
-		<Button func={logout} label="Yes, Logout" />
+		<form method="POST">
+		<Button type="submit" label="Yes, Logout" />
+		</form>
 	</div>
 </section>

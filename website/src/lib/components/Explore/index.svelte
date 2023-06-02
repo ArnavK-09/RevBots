@@ -18,7 +18,7 @@
 	});
 </script>
 
-<section>
+<section> 
 	<!-- <BotFilters /> -->
 	<ExploreBots {bots} description="Most voted revolt bots..." heading="Top Revolt Bots" />
 	<ExploreBots {bots} description="Newest revolt bots published..." heading="Newest Bots" />

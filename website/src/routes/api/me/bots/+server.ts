@@ -94,6 +94,7 @@ export const POST = (async ({ request, cookies }) => {
 		website: data.site,
 		support: data.server,
 		invite: data.invite,
+		tags: data.tags,
 		votes: 69,
 		owner: { connect: { id: owner!.toString() } }
 	};

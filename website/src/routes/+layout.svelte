@@ -90,7 +90,7 @@
 		</ul>
 	</aside>{/if}
 <!-- Navbar -->
-<header>
+<header class="bg-red-900">
 	<Navbar />
 </header>
 

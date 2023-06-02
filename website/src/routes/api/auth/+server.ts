@@ -54,7 +54,7 @@ export const POST = (async ({ request }: any) => {
 			data: {
 				code: genCode(),
 				user: id,
-				status: true // TODO remove
+				//status: true // TODO remove
 			}
 		});
 		return json(requestCreated);

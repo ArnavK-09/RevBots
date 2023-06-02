@@ -1,11 +1,12 @@
 // imports
 import type { LayoutServerLoad } from './$types';
-//import { redirect } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
+
 // middleware
-export const load = ((ev) => {
+export const load = (({cookies}) => {
 	// check
-	console.log(ev.cookies.getAll());
-	/*if (cookies.get('revAuth')) {
+	console.log( cookies.getAll());
+	if (cookies.get('revAuth')) {
 		throw redirect(307, '/auth/login');
-	}*/
+	}
 }) satisfies LayoutServerLoad;
