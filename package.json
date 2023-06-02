@@ -121,12 +121,8 @@
     "zwitch": "^2.0.4"
   },
   "devDependencies": {
-    "node": "^20.2.0",
-    "release-it": "^15.10.3"
-  },
-  "scripts": {
-    "release": "release-it"
-  },
+    "node": "^20.2.0"
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArnavK-09/RevBots.git"
