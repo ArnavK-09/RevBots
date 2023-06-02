@@ -90,12 +90,12 @@
 		</ul>
 	</aside>{/if}
 <!-- Navbar -->
-<header class="bg-red-900">
+<header>
 	<Navbar />
 </header>
 
 <!-- Page -->
-<div class="pt-20">
+<div class="pt-16">
 	<slot />
 </div>
 

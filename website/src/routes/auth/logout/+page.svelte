@@ -3,10 +3,22 @@
 	import GradientText from '$lib/components/Gradient/Text.svelte';
 	import Button from '$lib/components/UI/Button.svelte';
 
+	// imports
+	import { goto } from '$app/navigation';
+
 	// logout
-	const logout = () => {
-		alert('todo');
-		alert(JSON.stringify(document.cookie));
+	const logout = async () => {
+		const res = await fetch(`/api/auth`, {
+			method: 'DELETE'
+		});
+		if (res.ok) {
+			alert('Successfully! Logout!');
+		} else {
+			alert('Error Encountered, Check Out Console');
+			await goto('/', {
+				invalidateAll: true
+			});
+		}
 	};
 </script>
 
@@ -16,8 +28,6 @@
 			<GradientText text={`Logout`} />
 		</h2>
 		<p class="text-3xl my-2 text-gray-400">Do You Really Wanna Logout?</p>
-		<form method="POST">
-		<Button type="submit" label="Yes, Logout" />
-		</form>
+		<Button type="submit" func={logout} label="Yes, Logout" />
 	</div>
 </section>

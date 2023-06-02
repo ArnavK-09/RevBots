@@ -4,4 +4,6 @@
 </script>
 
 <MetaHead title="Authentication Area" />
-<slot />
+<div class="bg-gradient-to-b from-red-900 to-transparent via-black">
+	<slot />
+</div>

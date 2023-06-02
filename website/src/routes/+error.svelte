@@ -8,7 +8,9 @@
 </script>
 
 <MetaHead title={`${$page.status} - ${$page.error?.message}`} />
-<section class="h-screen flex items-center justify-center">
+<section
+	class="h-screen bg-gradient-to-b from-red-900 to-transparent via-black flex items-center justify-center"
+>
 	<div class="text-center mx-2">
 		<h2 class="text-7xl font-bold tracking-wider">
 			<GradientText text={`${$page.status}`} />

@@ -1,5 +1,5 @@
 // imports
-import { error, json } from '@sveltejs/kit';
+import { error, json, redirect, text } from '@sveltejs/kit';
 import DB from '$lib/server/database';
 import type { RequestHandler } from './$types';
 import { encrypt } from '$lib/server/modules/JWA';
@@ -23,6 +23,7 @@ const genCode = (): string => {
 
 // POST /api/auth
 export const POST = (async ({ request }: any) => {
+	// await DB.request.deleteMany({}); return json({})
 	/* Begin login */
 	const body = await request.json();
 	const id = body.identifier.toUpperCase().trim();
@@ -48,12 +49,20 @@ export const POST = (async ({ request }: any) => {
 		});
 	}
 
+	// check if bot
+	const isBot = await axios
+		.get(`https://api.revolt.chat/bots/${id.toString()}/invite`)
+		.catch(() => {});
+	if (isBot?.status == 200) {
+		throw error(406, { message: "Can' login a bot" });
+	}
+
 	// create request
 	try {
 		const requestCreated = await DB.request.create({
 			data: {
 				code: genCode(),
-				user: id,
+				user: id
 				//status: true // TODO remove
 			}
 		});
@@ -175,13 +184,13 @@ export const PATCH = async ({ request }: any) => {
 
 	// get request
 	const requestOnDB = await DB.request
-		.findUnique({
+		.findFirst({
 			where: {
 				code: code,
 				user: userID
 			}
 		})
-		.catch(() => {
+		.catch((e) => {
 			throw error(500, { message: 'Failed to contact database' });
 		});
 
@@ -200,20 +209,33 @@ export const PATCH = async ({ request }: any) => {
 	}
 
 	// update request
-	await DB.request
+	const req = await DB.request
 		.update({
 			where: {
-				code: code,
-				user: userID
+				code: code
 			},
 			data: {
 				status: true
 			}
 		})
-		.then((data) => {
-			return json(data);
-		})
-		.catch(() => {
+		.catch((e) => {
 			throw error(500, { message: 'Failed to update data on database' });
 		});
+
+	// return
+	return json({ result: req });
 };
+
+// DELETE /api/auth
+export const DELETE = (({ cookies }) => {
+	// logout using cookies
+	try {
+		cookies.delete('revAuth');
+		throw redirect(307, '/');
+		return text('Successfully, Logout Done!');
+	} catch {
+		throw error(500, {
+			message: 'Unexpected error during logout progress'
+		});
+	}
+}) satisfies RequestHandler;

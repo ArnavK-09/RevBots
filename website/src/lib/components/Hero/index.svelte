@@ -11,6 +11,7 @@
 	// props
 	export let query = '';
 </script>
+
 <section class="px-5 bg-gradient-to-b from-red-900 to-transparent via-red-900 py-14">
 	<div class="mb-9 flex flex-col mx-auto max-w-3xl justify-between">
 		<h1 class="text-left font-semibold md:text-7xl text-5xl">

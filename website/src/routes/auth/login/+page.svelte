@@ -2,6 +2,16 @@
 	// import
 	import { siteLoading } from '$lib/store';
 	import axios from 'axios';
+	import { onMount } from 'svelte';
+	import { user } from '$lib/store';
+	import { goto } from '$app/navigation';
+
+	// check user
+	onMount(async () => {
+		if ($user) {
+			await goto('/me');
+		}
+	});
 
 	// components
 	import Button from '$lib/components/UI/Button.svelte';
@@ -65,7 +75,7 @@
 	};
 </script>
 
-<section class="items-center h-screen my-10">
+<section class="items-center h-screen py-14">
 	<!-- Login form -->
 	<div class="mx-auto px-8 text-center">
 		<h1 class="font-extrabold mb-14 text-3xl tracking-widest">Please login your account</h1>
@@ -87,7 +97,10 @@
 		<div class="w-full mt-11 px-8 text-center">
 			<h3 class="mb-2 tracking-wider text-1xl">
 				<span class="font-thick text-gray-400 mx-px text-sm">Step2</span>
-				Enter Verification Code in our server...
+				Enter Verification Code in our
+				<a href="/support" target="_blank" class="underline font-medium" aria-label="join_server"
+					>server</a
+				>...
 			</h3>
 			<p
 				class="bg-transparent text-center text-lg brightness-150 select-all border-red-700 border rounded-lg py-2"

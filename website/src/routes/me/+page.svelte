@@ -25,6 +25,7 @@
 		}
 	});
 </script>
+
 <MetaHead title={$user ? $user.username : 'Not logged in'} />
 <section class={`${!(bots.length < 0) ? 'h-screen' : ''} py-10 px-2 md:px-16`}>
 	<div class="flex my-3 justify-center items-center">
@@ -48,7 +49,7 @@
 		</span>
 		<p class="p-2 rounded-lg bg-black/70 text-1xl md:text-3xl">No Bio Set...</p>
 	</div>
-	<a class="my-5" href="/@me/addbot">
+	<a class="my-5" href="/me/addbot">
 		<Button label="Add Your Bot" />
 	</a>
 	{#if bots.length > 0}

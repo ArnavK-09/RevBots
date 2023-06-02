@@ -35,7 +35,7 @@ export const POST = (async ({ request, cookies }) => {
 	const body = await request.json();
 	const data = body.data;
 	const owner = decrypt(cookies.get('revAuth'));
-
+	console.log(data);
 	// validate
 	if (
 		!(data.identifier || owner || data.longDescription || data.invite || data.prefix || data.github)

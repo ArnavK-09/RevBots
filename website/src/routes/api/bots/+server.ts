@@ -5,7 +5,7 @@ import type { RequestHandler } from './$types';
 
 // GET /api/bots
 export const GET = (async () => {
-	//await DB.bot.deleteMany({})
+	//	await DB.bot.deleteMany({})
 	const bots = await DB.bot.findMany().catch(() => {
 		throw error(500, { message: 'Failed to contact Database' });
 	});
