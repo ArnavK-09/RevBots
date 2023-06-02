@@ -4,5 +4,5 @@
   },
   "git": {
     "commitMessage": "🎉 New Release v${version}!"
-  },
+  }
 }
