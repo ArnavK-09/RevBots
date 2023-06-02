@@ -1,7 +1,4 @@
 {
-  "github": {
-    "release": true
-  },
   "git": {
     "commitMessage": "🎉 New Release v${version}!"
   }
