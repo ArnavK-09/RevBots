@@ -45,6 +45,23 @@ export const actions = {
 				return { success: true };
 			});
 	},
+	del: async ({ request }: any) => {
+		const data = await request.formData();
+		const bot = data.get('identifier');
+		// delete bot
+		await DB.bot
+			.delete({
+				where: {
+					identifier: bot
+				}
+			})
+			.catch((e) => {
+				return fail(500, { success: false, error: e.message });
+			})
+			.then(() => {
+				return { success: true };
+			});
+	},
 	promote: async ({ request }: any) => {
 		const data = await request.formData();
 		const bot = data.get('identifier');

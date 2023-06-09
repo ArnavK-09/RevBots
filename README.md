@@ -5,6 +5,8 @@
 # 🚩 **RevBots:- Rev Revolt Bots...**
 > RevBots is a Revolt bot list website that allows users to showcase their Revolt bots. This repository contains the code for both the ` RevBots ` website and the ` RevBot ` Discord bot.
 
+⚠️ **Website Currently Using Non-Production Database**
+
 ---
 ---
 
@@ -83,7 +85,7 @@ RevBots and RevBot are both licensed under the ISC License. See the [LICENSE](LI
 ## ⚡ Version
 Latest version for **"RevBots"** repo is  **` v0.1.1 `**
 
-_💫 Feel free to explore, contribute, and enjoy the world of RevBots and RevBot! And don't forget to give a star to this repo..._
+> _💫 Feel free to explore, contribute, and enjoy the world of RevBots and RevBot! And don't forget to give a star to this repo..._
 
 ---
 ---

@@ -17,6 +17,11 @@
 </script>
 
 <!-- all Bots -->
+{#if bots.length == 0}
+	<div class="flex h-screen items-center justify-center">
+		<h2 class="text-white/70 font-semibold text-3xl">No Bots :(</h2>
+	</div>
+{/if}
 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 	{#each bots as bot (bot.username)}
 		<div class="py-4 px-2 overflow-scroll border-4 rounded-lg border-red-800 text-center">
@@ -85,6 +90,10 @@
 				<button
 					class="w-full py-3 text-center border border-black text-black rounded-2xl rounded-b bg-red-500"
 					formaction={`${action}?/status`}>Update Status</button
+				>
+				<button
+					class="w-full py-3 text-center border border-black text-black rounded-b bg-red-500"
+					formaction={`${action}?/del`}>Delete Bot</button
 				>
 				<button
 					class="w-full py-3 text-center border border-black text-black rounded-2xl rounded-t bg-red-500"
