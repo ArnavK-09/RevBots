@@ -16,7 +16,7 @@
 		{name}
 		{disabled}
 		bind:value
-		class="py-3 px-4 block w-full bg-white/10 shadow-md outline-none rounded-md"
+		class="py-3 px-4 block w-full bg-white/10 shadow-md outline-none disabled:opacity-70 rounded-md"
 		{placeholder}
 		{required}
 	/>

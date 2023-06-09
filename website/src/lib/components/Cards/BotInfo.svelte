@@ -10,12 +10,14 @@
 </script>
 
 <div class="my-3">
-	<strong class="tracking-wider mb-2 text-lg text-white/80 font-extrabold">{title}</strong>
+	<strong class="tracking-wider md:text-2xl mb-2 text-lg text-white/80 font-extrabold"
+		>{title}</strong
+	>
 	<ul class="my-3 pl-2">
 		{#each content as item}
 			{#if item.value}
 				<li>
-					<p>
+					<p class="md:text-lg">
 						<span class="font-bold tracking-wider">
 							{item.name}:
 						</span>
@@ -23,8 +25,10 @@
 							this={item.href ? 'a' : 'span'}
 							href={item.href ?? undefined}
 							target={item.external ? '_blank' : '_self'}
-							class="font-medium scale-110 hover:underline">{item.value}</svelte:element
+							class="font-medium scale-110 hover:underline"
 						>
+							{item.value}
+						</svelte:element>
 					</p>
 				</li>
 			{/if}{/each}

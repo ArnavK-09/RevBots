@@ -35,7 +35,7 @@ export const POST = (async ({ request, cookies }) => {
 	const body = await request.json();
 	const data = body.data;
 	const owner = decrypt(cookies.get('revAuth'));
-	console.log(data);
+
 	// validate
 	if (
 		!(data.identifier || owner || data.longDescription || data.invite || data.prefix || data.github)
@@ -62,7 +62,7 @@ export const POST = (async ({ request, cookies }) => {
 	const bot = await axios
 		.get(`https://api.revolt.chat/bots/${data.identifier.toString()}/invite`)
 		.catch(() => {
-			throw error(400, { message: 'Unable to fetch bot on revolt' });
+			throw error(406, { message: 'Unable to fetch bot on revolt' });
 		});
 
 	// fetch revolt bot data
@@ -95,7 +95,7 @@ export const POST = (async ({ request, cookies }) => {
 		support: data.server,
 		invite: data.invite,
 		tags: data.tags,
-		votes: 69,
+		votes: 0,
 		owner: { connect: { id: owner!.toString() } }
 	};
 	const newBot = await DB.bot

@@ -33,18 +33,16 @@
 						N/A
 					</p>
 				</a>
-				<div class="flex flex-shrink scale-90">
-					{#each tags as tag}
-						<Tag label={tag} />
-					{/each}
-				</div>
 			</div>
 		</div>
-
-		<p class="mx-1 text-gray-400 mt-4 text-sm sm:block">
+		<p class="mx-1 my-1 text-gray-400 mt-3 text-sm sm:block">
 			{description ?? 'No Description Available...'}
 		</p>
-
+		<div class="flex w-full justify-left flex-wrap gap-2 scale-90">
+			{#each tags as tag}
+				<Tag label={tag} />
+			{/each}
+		</div>
 		<div class="gap-x-1 text-center mt-4 grid w-full grid-cols-5">
 			<a href={`/@${id}/invite`} target="_blank" class="col-span-2 bg-red-200/10 py-3 rounded-lg">
 				Invite

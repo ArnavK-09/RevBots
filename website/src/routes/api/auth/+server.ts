@@ -1,5 +1,5 @@
 // imports
-import { error, json, redirect, text } from '@sveltejs/kit';
+import { error, json, redirect } from '@sveltejs/kit';
 import DB from '$lib/server/database';
 import type { RequestHandler } from './$types';
 import { encrypt } from '$lib/server/modules/JWA';
@@ -190,7 +190,7 @@ export const PATCH = async ({ request }: any) => {
 				user: userID
 			}
 		})
-		.catch((e) => {
+		.catch(() => {
 			throw error(500, { message: 'Failed to contact database' });
 		});
 
@@ -218,7 +218,7 @@ export const PATCH = async ({ request }: any) => {
 				status: true
 			}
 		})
-		.catch((e) => {
+		.catch(() => {
 			throw error(500, { message: 'Failed to update data on database' });
 		});
 
@@ -232,7 +232,6 @@ export const DELETE = (({ cookies }) => {
 	try {
 		cookies.delete('revAuth');
 		throw redirect(307, '/');
-		return text('Successfully, Logout Done!');
 	} catch {
 		throw error(500, {
 			message: 'Unexpected error during logout progress'

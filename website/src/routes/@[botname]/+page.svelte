@@ -15,15 +15,17 @@
 </script>
 
 <MetaHead title={`Learn more about "${data.bot.username}" Revolt Bot...`} />
-<section class="my-5 md:px-16">
+<section>
 	<HeroSearch />
-	<BotpageHeader
-		avatar={data.bot.avatar}
-		description={data.bot.shortDescription}
-		name={data.bot.username}
-		id={data.bot.id}
-	/>
-	<BotpageDescription markdown={data.bot.description} />
-	<BotpageInfo data={data.bot} />
-	<BotpageOwner name={data.owner.username} />
+	<div class="my-14">
+		<BotpageHeader
+			avatar={data.bot.avatar}
+			description={data.bot.shortDescription}
+			name={data.bot.username}
+			id={data.bot.id}
+		/>
+		<BotpageDescription markdown={data.bot.description} />
+		<BotpageInfo data={data.bot} />
+		<BotpageOwner name={data.owner.username} />
+	</div>
 </section>

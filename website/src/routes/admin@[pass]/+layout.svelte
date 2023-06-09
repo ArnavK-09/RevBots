@@ -5,6 +5,6 @@
 
 <MetaHead title="Admin Area" />
 <section class="py-10 px-3">
-	<h2 class="font-semibold text-center text-3xl">Admin Area</h2>
+	<h2 class="font-semibold text-center my-5 text-3xl">Admin Area</h2>
 	<slot />
 </section>

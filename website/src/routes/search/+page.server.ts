@@ -54,8 +54,7 @@ export const load = (async ({ url }) => {
 				tags: true
 			}
 		})
-		.catch((ee) => {
-			console.log(ee);
+		.catch(() => {
 			throw error(500, { message: 'Unable to contact DB' });
 		});
 	// return value

@@ -1,4 +1,6 @@
 <script lang="ts">
+	// Imports
+	import { page } from '$app/stores';
 	// Icons
 	import Icon from '@iconify/svelte';
 	// Props
@@ -22,12 +24,16 @@
 
 <div class="gap-x-1 text-center mt-4 grid w-full grid-cols-5">
 	<a
-		href="invite"
+		href={$page.url + '/invite'}
+		target="_blank"
 		class="col-span-2 py-3 text-black rounded-lg font-thick border border-black bg-red-500"
 	>
 		Invite
 	</a>
-	<a href="vote" class="hover:shadow-lg col-span-2 bg-white/10 py-3 text-white/90 rounded-lg">
+	<a
+		href={$page.url + '/vote'}
+		class="hover:shadow-lg col-span-2 bg-white/10 py-3 text-white/90 rounded-lg"
+	>
 		Vote
 	</a>
 	<button on:click={share} class="bg-white/10 py-3 rounded-lg">

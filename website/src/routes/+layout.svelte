@@ -41,7 +41,7 @@
 	}> = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Explore Bots', url: '/' },
-		{ name: 'Your Bots', url: '/@me' },
+		{ name: 'Your Profile', url: '/@me' },
 		{ name: 'Github', url: '/github' },
 		{ name: 'Support', url: '/support' },
 		{ name: 'API', url: '/api' }
@@ -88,7 +88,8 @@
 				</li>
 			{/each}
 		</ul>
-	</aside>{/if}
+	</aside>
+{/if}
 <!-- Navbar -->
 <header>
 	<Navbar />
@@ -100,4 +101,6 @@
 </div>
 
 <!-- Footer -->
-<footer><Footer /></footer>
+<footer class="mt-14 md:mt-16">
+	<Footer />
+</footer>

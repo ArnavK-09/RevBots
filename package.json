@@ -1,6 +1,6 @@
 {
   "name": "revbots",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Mono repo of RevBot's Bot and Website",
   "dependencies": {
     "acorn": "^8.8.2",

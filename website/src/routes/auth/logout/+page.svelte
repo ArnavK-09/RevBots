@@ -11,7 +11,7 @@
 		const res = await fetch(`/api/auth`, {
 			method: 'DELETE'
 		});
-		if (res.ok) {
+		if (!(res.status == 500)) {
 			alert('Successfully! Logout!');
 		} else {
 			alert('Error Encountered, Check Out Console');

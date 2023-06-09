@@ -2,16 +2,17 @@
 	// import
 	import { siteLoading } from '$lib/store';
 	import axios from 'axios';
-	import { onMount } from 'svelte';
 	import { user } from '$lib/store';
 	import { goto } from '$app/navigation';
 
 	// check user
-	onMount(async () => {
+	$: {
 		if ($user) {
-			await goto('/me');
+			(async () => {
+				await goto('/me');
+			})();
 		}
-	});
+	}
 
 	// components
 	import Button from '$lib/components/UI/Button.svelte';

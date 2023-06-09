@@ -37,21 +37,12 @@
 	// addbot
 	const addBot = async () => {
 		// validate
-		const validURL = new RegExp(
-			/^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g
-		);
 		if (!(form.identifier.length == 26)) {
 			alert('Identifier Must be of 26 characters');
 		} else if (longDescription.trim().length < 10) {
 			alert('Long description must be min 10 chracters');
 		} else if (github.trim().length < 3 || !github.includes('/')) {
 			alert('Invalid Github Repo');
-		} else if (invite && !validURL.test(invite)) {
-			alert('Invalid Invite URL');
-		} else if (server && !validURL.test(server)) {
-			alert('Invalid Support Server URL');
-		} else if (website && !validURL.test(website)) {
-			alert('Invalid Website URL');
 		} else {
 			/* all fine */
 			siteLoading.set(true);
@@ -61,7 +52,7 @@
 				})
 				.then(async () => {
 					alert('Bot Added');
-					await goto('/@me');
+					await goto('/me');
 				})
 				.catch((e) => alert(e.message))
 				.finally(() => siteLoading.set(false));
@@ -80,15 +71,15 @@
 		/>
 		<Input label="Enter Bot Server Prefix" bind:value={prefix} placeholder="Example $rb" />
 		<Input
-			label="Enter Invite URL (without HTTP)"
+			label="Enter Invite URL"
 			bind:value={invite}
-			placeholder="Example revolt.bot/invite"
+			placeholder="Example https://revolt.bot/invite"
 		/>
 		<Input
 			required={false}
 			label="Enter Bot Website URL"
 			bind:value={website}
-			placeholder="Example revbots.com"
+			placeholder="Example https://revbots.com"
 		/>
 		<Textarea
 			label="Enter Bot Long Description (Markdown)"
@@ -99,7 +90,7 @@
 			required={false}
 			label="Enter Bot Support Server URL"
 			bind:value={server}
-			placeholder="Example rvlt.gg/n5CdDewh"
+			placeholder="Example https://rvlt.gg/n5CdDewh"
 		/>
 		<Input
 			label="Enter Bot Source Repo (GitHub)"

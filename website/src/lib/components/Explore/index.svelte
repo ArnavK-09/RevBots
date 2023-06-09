@@ -7,12 +7,21 @@
 	import ExploreBots from '$lib/components/Explore/Bots.svelte';
 
 	// get bots
-	let bots: any[] = [];
+	let topBots: any[] = [];
+	let newBots: any[] = [];
 	onMount(async () => {
+		/* top bots */
 		await axios
 			.get('/api/bots')
 			.then((e) => {
-				bots = e.data;
+				topBots = e.data;
+			})
+			.catch((err) => alert(err.message));
+		/* latest bots */
+		await axios
+			.get('/api/bots?sort=newest')
+			.then((e) => {
+				newBots = e.data;
 			})
 			.catch((err) => alert(err.message));
 	});
@@ -20,6 +29,6 @@
 
 <section>
 	<!-- <BotFilters /> -->
-	<ExploreBots {bots} description="Most voted revolt bots..." heading="Top Revolt Bots" />
-	<ExploreBots {bots} description="Newest revolt bots published..." heading="Newest Bots" />
+	<ExploreBots bots={topBots} description="Most voted revolt bots..." heading="Top Revolt Bots" />
+	<ExploreBots bots={newBots} description="Latest revolt bots published..." heading="Newest Bots" />
 </section>
