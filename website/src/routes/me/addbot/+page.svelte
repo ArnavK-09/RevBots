@@ -41,6 +41,8 @@
 			alert('Identifier Must be of 26 characters');
 		} else if (longDescription.trim().length < 10) {
 			alert('Long description must be min 10 chracters');
+		} else if (shortDescription.trim().length > 65) {
+			alert('Long description must be max 65 chracters');
 		} else if (github.trim().length < 3 || !github.includes('/')) {
 			alert('Invalid Github Repo');
 		} else {
@@ -51,7 +53,7 @@
 					data: form
 				})
 				.then(async () => {
-					alert('Bot Added');
+					alert('Bot Sent for review! Please wait for few days');
 					await goto('/me');
 				})
 				.catch((e) => alert(e.message))
@@ -61,7 +63,7 @@
 </script>
 
 <MetaHead title="Submit new bot to RevBots" />
-<section class="py-10 px-5">
+<section class="py-10 md:px-20 px-5">
 	<h2 class="font-semibold text-center text-3xl">Add Your Bot</h2>
 	<form class="my-5 divide-y-8 divide-transparent" on:submit|preventDefault={addBot}>
 		<Input
@@ -70,6 +72,11 @@
 			placeholder="Example 01H03C6Q86JP0XT39RTDPSS19V"
 		/>
 		<Input label="Enter Bot Server Prefix" bind:value={prefix} placeholder="Example $rb" />
+		<Input
+			label="Enter Bot Short Description (65 Chracters)"
+			bind:value={shortDescription}
+			placeholder="Example Our bot is best"
+		/>
 		<Input
 			label="Enter Invite URL"
 			bind:value={invite}

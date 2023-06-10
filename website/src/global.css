@@ -11,3 +11,40 @@ body {
 	font-family: 'Hammersmith One', sans-serif;
 	scroll-behavior: smooth;
 }
+
+/* no scroll bar */
+@layer utilities {
+	@variants responsive {
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+	}
+}
+
+/* shake animation */
+@keyframes shake {
+	0% {
+		transform: rotate(0.5deg);
+	}
+	50% {
+		transform: rotate(-0.5deg);
+	}
+	100% {
+		transform: rotate(0.5deg);
+	}
+}
+.shakeme {
+	animation: shake 1.5s infinite;
+	animation-timing-function: linear;
+}
+.shakeme:hover {
+	animation: none;
+	scale: 1.01;
+}

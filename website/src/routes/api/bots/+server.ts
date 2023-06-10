@@ -26,7 +26,8 @@ export const GET = (async ({ url }) => {
 	const bots = await DB.bot
 		.findMany({
 			where: {
-				status: 'ACTIVE'
+				status: 'ACTIVE',
+				promoted: sortBy == 'promoted' ? true : undefined
 			},
 			orderBy: wSortBy
 		})

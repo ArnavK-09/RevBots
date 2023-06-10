@@ -24,7 +24,7 @@
 {/if}
 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 	{#each bots as bot (bot.username)}
-		<div class="py-4 px-2 overflow-scroll border-4 rounded-lg border-red-800 text-center">
+		<div class="py-4 px-2 border-4 rounded-lg border-red-800 text-center">
 			<!-- base info -->
 			<div class="my-2 flex items-center justify-center">
 				<img
@@ -42,9 +42,11 @@
 					<br />
 					Votes: {bot.votes}
 				</p>
-				<p class="text-white/80 text-sm">{bot.shortDescription ?? 'No Short Description'}</p>
+				<p class="text-white/80 text-sm">
+					Short Description: {bot.shortDescription ?? 'No Short Description'}
+				</p>
 			</div>
-			<p class="mx-3 text-sm border p-2 rounded-2xl">
+			<p class="m-3 text-sm border p-2 rounded-2xl">
 				{bot.description}
 			</p>
 			<!-- tags -->

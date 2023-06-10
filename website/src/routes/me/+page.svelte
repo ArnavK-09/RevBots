@@ -27,7 +27,7 @@
 </script>
 
 <MetaHead title={$user ? $user.username : 'Not logged in'} />
-<section class={`${!(bots.length < 0) ? 'h-screen' : ''} py-10 px-2 md:px-16`}>
+<section class={`${bots.length == 0 ? 'h-screen' : ''} py-10 px-2 md:px-16`}>
 	<div class="flex my-3 justify-center items-center">
 		<img
 			class="rounded-full bg-black h-28 w-28 md:h-48 md:w-48 shadow-black shadow-2xl"

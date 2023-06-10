@@ -12,7 +12,7 @@
 	export let query = '';
 </script>
 
-<section class="px-5 bg-gradient-to-b from-red-900 to-transparent via-red-900 py-14">
+<section class="px-5 bg-gradient-to-b from-red-800 to-transparent via-red-800 py-14">
 	<div class="mb-9 flex flex-col mx-auto max-w-3xl justify-between">
 		<h1 class="text-left font-semibold md:text-7xl text-5xl">
 			Rev the <GradientText text="Revolt" /> bots...
@@ -20,7 +20,7 @@
 		<form action="/search" method="get">
 			<Input name="query" value={query} placeholder="Explore Revolt Bots..." />
 		</form>
-		<div class="mt-5 gap-x-4 overflow-x-scroll flex flex-scroll">
+		<div class="mt-5 gap-x-4 overflow-x-scroll no-scrollbar flex flex-scroll">
 			{#each $tags as tag}
 				<Tag label={tag} />
 			{/each}

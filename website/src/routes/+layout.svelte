@@ -41,7 +41,7 @@
 	}> = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Explore Bots', url: '/' },
-		{ name: 'Your Profile', url: '/@me' },
+		{ name: 'Your Profile', url: '/me' },
 		{ name: 'Github', url: '/github' },
 		{ name: 'Support', url: '/support' },
 		{ name: 'API', url: '/api' }

@@ -13,5 +13,10 @@
 
 <MetaHead title={`Search "${data.query}"`} />
 <HeroSearch query={data.query} />
-<ExploreBots bots={data.bots} description={`Results`} heading="Search Results..." />
-<!-- {JSON.stringify(data)} -->
+<ExploreBots
+	bots={data.bots}
+	description={`Your Search Parameters were, ${data.query ? `Query: "${data.query}"` : ''} ${
+		data.tag ? `Tag: "${data.tag}"` : ''
+	}`}
+	heading="Search Results..."
+/>

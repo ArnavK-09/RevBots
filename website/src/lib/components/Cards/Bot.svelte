@@ -18,7 +18,7 @@
 		<div class="flex gap-x-3">
 			<div>
 				<a href={`/@${id}`}>
-					<img src={avatar} alt={`${id} Pfp`} class="h-16 w-16 sm:h-10 sm:w-10 rounded-full" />
+					<img src={avatar} alt={`${id} Pfp`} class="md:h-16 md:w-16 h-12 w-12 rounded-full" />
 				</a>
 			</div>
 			<div>
@@ -38,7 +38,7 @@
 		<p class="mx-1 my-1 text-gray-400 mt-3 text-sm sm:block">
 			{description ?? 'No Description Available...'}
 		</p>
-		<div class="flex w-full justify-left flex-wrap gap-2 scale-90">
+		<div class="flex w-full my-2 justify-left flex-wrap gap-2">
 			{#each tags as tag}
 				<Tag label={tag} />
 			{/each}
@@ -48,14 +48,14 @@
 				Invite
 			</a>
 			<a href={`/@${id}`} class="col-span-2 bg-red-200/10 py-3 rounded-lg"> View </a>
-			<a href={`/@${id}`} class="bg-red-100/10 py-3 justify-center rounded-lg">
-				<Icon icon="tabler:share" color="#fff" style="margin: auto;" />
+			<a href={`/@${id}`} class="bg-red-100/10 py-3 items-center flex justify-center rounded-lg">
+				<Icon icon="tabler:share" color="#fff" />
 			</a>
 		</div>
 	</div>
 	<div class="absolute right-1">
 		<span
-			class="rounded-lg flex m-1.5 w-auto border-2 text-center border-red-700 bg-red-700/10 px-2 py-1.5 text-sm font-thick text-red-700"
+			class="rounded-lg flex items-center justify-center m-1.5 w-auto border-2 text-center border-red-700 bg-red-700/10 px-2 py-1.5 text-sm font-thick text-red-700"
 		>
 			<span class="fill-red-700 mr-px">
 				<Icon icon="bxs:upvote" width={15} height={15} />

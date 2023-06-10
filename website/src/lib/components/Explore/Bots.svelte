@@ -9,7 +9,7 @@
 	export let bots: any[] = [];
 </script>
 
-<section class="my-10 px-5">
+<section class="my-10 px-5 md:px-16">
 	<div>
 		<h2 class="font-medium text-3xl">{heading}</h2>
 		<p class="text-gray-400/80 text-sm">{description}</p>

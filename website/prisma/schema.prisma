@@ -43,11 +43,16 @@ model Bot {
 }
 
 enum Tag {
-  GENERAL
   ANIME
-  GAME
-  ECONOMY
+  FUN
+  MUSIC
+  MULTIPURPOSE
   MODERATION
+  LOGGING
+  NSFW
+  AI
+  RANKS
+  GIVEAWAYS
 }
 
 enum BotStatus {

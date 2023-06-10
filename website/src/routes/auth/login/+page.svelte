@@ -76,11 +76,11 @@
 	};
 </script>
 
-<section class="items-center h-screen py-14">
+<section class="items-center h-screen py-14 md:px-48">
 	<!-- Login form -->
 	<div class="mx-auto px-8 text-center">
 		<h1 class="font-extrabold mb-14 text-3xl tracking-widest">Please login your account</h1>
-		<h3 class="mb-2 tracking-wider text-1xl">
+		<h3 class="mb-2 tracking-wider text-lg md:scale-125">
 			<span class="font-thick text-gray-400 mx-px text-sm">Step1</span>
 			Enter your Revolt Identifier...
 		</h3>
@@ -96,7 +96,7 @@
 	<!-- verify section -->
 	{#if loginState.code !== null}
 		<div class="w-full mt-11 px-8 text-center">
-			<h3 class="mb-2 tracking-wider text-1xl">
+			<h3 class="mb-2 tracking-wider text-lg md:scale-125">
 				<span class="font-thick text-gray-400 mx-px text-sm">Step2</span>
 				Enter Verification Code in our
 				<a href="/support" target="_blank" class="underline font-medium" aria-label="join_server"
@@ -114,7 +114,7 @@
 	<!-- done section -->
 	{#if loginState.done}
 		<div class="w-full mt-11 px-8 text-center">
-			<h3 class="mb-2 tracking-wider text-1xl">
+			<h3 class="mb-2 tracking-wider text-lg md:scale-125">
 				<span class="font-thick text-gray-400 mx-px text-sm">Step3</span>
 				You are done now...
 			</h3>

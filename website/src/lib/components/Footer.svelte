@@ -16,7 +16,7 @@
 </script>
 
 <section id="footer" class="p-6 md:py-10 text-center bg-red-800/10 rounded-2xl">
-	<strong class="text-4xl my-10">RevBots</strong>
+	<strong class="text-4xl my-10 underline-offset-4 underline">RevBots</strong>
 	<p class="text-sm my-4 text-gray-200/50">
 		Welcome to Revbots, your one-stop hub for exploring an array of cutting-edge bots tailored
 		specifically for Revolt, the dynamic chat platform that revolutionizes communication. Enhance
@@ -27,7 +27,7 @@
 	<ul class="mt-8 mb-6 justify-center items-center md:mt-10 flex flex-wrap gap-x-3 gap-y-1">
 		{#each links as link (link.name)}
 			<li>
-				<a href={link.url} class="underline text-xs tmd:text-sm">
+				<a href={link.url} class="underline text-xs md:text-sm">
 					{link.name}
 				</a>
 			</li>

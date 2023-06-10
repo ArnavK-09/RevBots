@@ -17,7 +17,7 @@
 <MetaHead title={`Learn more about "${data.bot.username}" Revolt Bot...`} />
 <section>
 	<HeroSearch />
-	<div class="my-14">
+	<div class="my-14 md:mx-20">
 		<BotpageHeader
 			avatar={data.bot.avatar}
 			description={data.bot.shortDescription}

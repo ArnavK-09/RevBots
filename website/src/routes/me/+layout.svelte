@@ -12,6 +12,6 @@
 	});
 </script>
 
-<section class="bg-gradient-to-b from-red-900 to-transparent via-black">
+<section class="bg-gradient-to-b from-red-800 to-transparent via-black">
 	<slot />
 </section>
