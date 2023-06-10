@@ -25,6 +25,14 @@ client.once("ready", () => {
     });
   });
 
+  // set status
+  client.user.edit({
+    status: {
+      text: "Watching Revolt Bot Logins | revbots.vercel.app",
+      presence: "Online",
+    },
+  });
+
   // start info
   console.log("\n✅ Bot started!\n");
 });

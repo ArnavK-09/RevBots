@@ -4,6 +4,7 @@ import DB from '$lib/server/database';
 import type { RequestHandler } from './$types';
 import { encrypt } from '$lib/server/modules/JWA';
 import axios from 'axios';
+import { env } from '$env/dynamic/private';
 
 /* Helper functions*/
 const genCode = (): string => {
@@ -54,7 +55,7 @@ export const POST = (async ({ request }: any) => {
 		.get(`https://api.revolt.chat/bots/${id.toString()}/invite`)
 		.catch(() => {});
 	if (isBot?.status == 200) {
-		throw error(406, { message: "Can' login a bot" });
+		throw error(406, { message: 'Cannnot login a bot' });
 	}
 
 	// create request
@@ -63,7 +64,6 @@ export const POST = (async ({ request }: any) => {
 			data: {
 				code: genCode(),
 				user: id
-				//status: true // TODO remove
 			}
 		});
 		return json(requestCreated);
@@ -91,7 +91,6 @@ export const GET = async ({ url, cookies }: any) => {
 		})
 		.catch(() => {
 			throw error(500, { message: 'Unable to contact Database' });
-			return;
 		});
 
 	// validate request
@@ -118,11 +117,11 @@ export const GET = async ({ url, cookies }: any) => {
 		const revoltUserData: any = await axios
 			.get(`https://api.revolt.chat/users/${requestOnDB.user}`, {
 				headers: {
-					'X-Bot-Token': 'dGME8er_oQb15xcW4qLHgJ9uBYywYg2GmkitrEUKkLANzCH5CYX5Km-qhCsFEvsd'
+					'X-Bot-Token': env.BOT_TOKEN
 				}
 			})
 			.catch((e) => {
-				console.log(e);
+				console.log(e, env.BOT_TOKEN);
 				throw error(403, { message: 'Unable to fetch revolt profile' });
 			});
 		// create user

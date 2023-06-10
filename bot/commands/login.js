@@ -17,15 +17,20 @@ module.exports = {
     }
 
     // fetch
-    const res = await axios.patch(`${process.env["API"]}/api/auth`, {
-      data: {
-        code,
+    const res = await axios
+      .patch(`${process.env["API"]}/api/auth`, {
+        code: code,
         identifier: message.author.id,
-      },
-    });
+      })
+      .catch(async () => {
+        await message.reply({
+          content: `🚨 Some error occurred in backend...`,
+        });
+        return;
+      });
 
     // notify user if verified
-    if (res.status == 200) {
+    if (res?.status == 200) {
       await message.reply({
         content: `✅ You're successfully verified login request. Kindly verify from website to continue....`,
       });
