@@ -44,7 +44,6 @@
 			id={data.bot.id}
 		/>
 		{#if User.identifier}
-			{JSON.stringify(User)}
 			<div class="mx-9">
 				<div class="my-10 px-2 rounded-2xl md:shadow-2xl shadow-lg py-14 shadow-red-600">
 					<div class="text-center">
