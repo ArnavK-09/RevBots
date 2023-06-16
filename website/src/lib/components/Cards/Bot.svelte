@@ -5,6 +5,7 @@
 
 	// props
 	export let id: string;
+	export let username: string;
 	export let votes = 0;
 	export let description: string | null;
 	export let avatar = '/logo.png';
@@ -17,14 +18,14 @@
 	<div class="pt-4 w-full">
 		<div class="flex gap-x-3">
 			<div>
-				<a href={`/@${id}`}>
+				<a href={`/bot/${id}`}>
 					<img src={avatar} alt={`${id} Pfp`} class="md:h-16 md:w-16 h-12 w-12 rounded-full" />
 				</a>
 			</div>
 			<div>
-				<a class="select-none" href={`/@${id}`}>
+				<a class="select-none" href={`/bot/${id}`}>
 					<h3 class="text-2xl capitalize font-medium text-red-700">
-						{id}
+						{username}
 					</h3>
 					<p class="text-sm font-bold text-gray-400 flex">
 						<span class="text-red-700 mr-1">
@@ -44,18 +45,22 @@
 			{/each}
 		</div>
 		<div class="gap-x-1 text-center mt-4 grid w-full grid-cols-5">
-			<a href={`/@${id}/invite`} target="_blank" class="col-span-2 bg-red-200/10 py-3 rounded-lg">
+			<a
+				href={`/bot/${id}/invite`}
+				target="_blank"
+				class="col-span-2 bg-red-200/10 py-3 rounded-lg"
+			>
 				Invite
 			</a>
-			<a href={`/@${id}`} class="col-span-2 bg-red-200/10 py-3 rounded-lg"> View </a>
-			<a href={`/@${id}`} class="bg-red-100/10 py-3 items-center flex justify-center rounded-lg">
-				<Icon icon="tabler:share" color="#fff" />
+			<a href={`/bot/${id}`} class="col-span-2 bg-red-200/10 py-3 rounded-lg"> View </a>
+			<a href={`/bot/${id}`} class="bg-red-100/10 py-3 items-center flex justify-center rounded-lg">
+				<Icon icon="tabler:share" color="#fff" /> <span class="sr-only">Share</span>
 			</a>
 		</div>
 	</div>
 	<div class="absolute right-1">
 		<span
-			class="rounded-lg flex items-center justify-center m-1.5 w-auto border-2 text-center border-red-700 bg-red-700/10 px-2 py-1.5 text-sm font-thick text-red-700"
+			class="rounded-lg align-middle font-extrabold flex items-center justify-center m-1.5 w-auto border-2 text-center border-red-700 bg-red-700/10 px-2 py-1.5 text-sm text-red-700"
 		>
 			<span class="fill-red-700 mr-px">
 				<Icon icon="bxs:upvote" width={15} height={15} />

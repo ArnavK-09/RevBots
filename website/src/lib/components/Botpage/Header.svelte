@@ -4,9 +4,10 @@
 
 	// props
 	export let name = 'Revolt Name';
-	export let description = 'Bot Description';
+	export let description = 'No Bot Description Provided...';
 	export let id = 0;
 	export let avatar = '/favicon.png';
+	export let actions = true;
 </script>
 
 <div class="bg-black/40 md:bg-black/20 mx-8 rounded-lg my-2 py-3 md:py-10">
@@ -22,7 +23,7 @@
 			<h1 class="text-5xl font-bold break-all tracking-wide">{name}</h1>
 			<span class="text-xs opacity-50"> Server ID: #{id}</span>
 			{#if description} <p class="text-gray-400 text-lg my-2">{description}</p>{/if}
-			<BotPageActions bot={name} />
+			{#if actions}<BotPageActions bot={name} />{/if}
 		</div>
 	</div>
 </div>

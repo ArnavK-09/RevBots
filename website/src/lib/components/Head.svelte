@@ -1,8 +1,8 @@
 <script>
 	// props
-	export let title = `Explore Revolt Bots You'll Ever Need`;
+	export let title = `Discover the Ultimate Revolt Bots You'll Ever Need`;
 	export let description =
-		'Welcome to Revbots, your one-stop hub for exploring an array of cutting-edge bots tailored specifically for Revolt, the dynamic chat platform that revolutionizes communication. Enhance your Revolt experience with our diverse range of bots, from productivity tools to entertainment companions. Join us now and witness the next level of interaction on Revolt. Rev Revolt Bots - Empowering your Revolt journey with limitless possibilities!';
+		'Discover cutting-edge bots designed for Revolt, the revolutionary chat platform. Boost your Revolt experience with our range of productivity and entertainment bots. Join us now for limitless possibilities!';
 </script>
 
 <svelte:head>

@@ -15,7 +15,7 @@
 	];
 </script>
 
-<section id="footer" class="p-6 md:py-10 text-center bg-red-800/10 rounded-2xl">
+<section id="footer" class="p-6 md:py-10 text-center bg-red-800/10 rounded-t-2xl">
 	<strong class="text-4xl my-10 underline-offset-4 underline">RevBots</strong>
 	<p class="text-sm my-4 text-gray-200/50">
 		Welcome to Revbots, your one-stop hub for exploring an array of cutting-edge bots tailored
@@ -43,7 +43,7 @@
 			>
 		</p>
 		<p>
-			We are not affiliated by <a class="font-extrabold" href="https://revolt.chat" target="_blank"
+			Not affiliated by <a class="font-extrabold" href="https://revolt.chat" target="_blank"
 				>Revolt</a
 			>
 		</p>

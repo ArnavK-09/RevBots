@@ -30,7 +30,12 @@
 		</div>
 		<div class="pt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
 			{#each bots as bot (bot.id)}
-				<PromotedBotCard avatar={bot.avatar} description={bot.shortDescription} id={bot.username} />
+				<PromotedBotCard
+					username={bot.username}
+					avatar={bot.avatar}
+					description={bot.shortDescription}
+					id={bot.identifier}
+				/>
 			{/each}
 		</div>
 	</section>

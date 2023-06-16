@@ -12,7 +12,7 @@
 				src={avatar}
 				alt="Owner PFP"
 			/>
-			<h5 class="md:text-3xl">
+			<h5 class="md:text-2xl">
 				<span class="text-xs mr-3 opacity-80 md:text-lg"> Owned By:</span>@{name}
 			</h5>
 		</div>

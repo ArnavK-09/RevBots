@@ -5,7 +5,7 @@
 # 🚩 **RevBots:- Rev Revolt Bots...**
 > RevBots is a Revolt bot list website that allows users to showcase their Revolt bots. This repository contains the code for both the ` RevBots ` website and the ` RevBot ` Discord bot.
 
-⚠️ **Website Currently Using Non-Production Database**
+⚠️ **Website Currently Using Non-Production Vercel Storage Database**
 
 ---
 ---
@@ -26,7 +26,7 @@ Welcome to RevBots, a Revolt bot list website showcasing a collection of powerfu
 - Explore detailed bot profiles with descriptions, owner, socials etc.
 - Easily add bots to your Revolt server with just a click
 - Add your own bot easily
-- Safe authentication system with Revolt API
+- Authentication system with Revolt API
 - Better and Modern UI
 - Easy to explore and search 
 
@@ -81,9 +81,6 @@ Visit the [Live Preview](https://rev-bots-tau.vercel.app) to explore RevBots and
 
 ## 🧮 License
 RevBots and RevBot are both licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
-
-## ⚡ Version
-Latest version for **"RevBots"** repo is  **` v0.1.1 `**
 
 > _💫 Feel free to explore, contribute, and enjoy the world of RevBots and RevBot! And don't forget to give a star to this repo..._
 
