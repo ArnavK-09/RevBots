@@ -1,6 +1,6 @@
 {
 	"name": "revbots-site",
-	"version": "0.1.1",
+	"version": "0.1.3",
 	"description": "Website for Rev Bots!",
 	"author": "ArnavK-09",
 	"license": "ISC",
@@ -18,8 +18,9 @@
 		"@iconify/svelte": "^3.1.3",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-vercel": "^3.0.0",
-		"@sveltejs/kit": "^1.5.0",
+		"@sveltejs/kit": "^1.20.3",
 		"@types/crypto-js": "^4.1.1",
+		"@types/ms": "^0.7.31",
 		"@types/showdown": "^2.0.1",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
@@ -42,10 +43,12 @@
 	"dependencies": {
 		"@prisma/client": "^4.15.0",
 		"@tailwindcss/forms": "^0.5.3",
-		"@types/node": "^20.2.5",
+		"@types/node": "^20.3.1",
 		"axios": "^1.4.0",
 		"crypto-js": "^4.1.1",
-		"dotenv": "^16.0.3",
-		"showdown": "^2.1.0"
+		"dotenv": "^16.3.0",
+		"ms": "^2.1.3",
+		"showdown": "^2.1.0",
+		"tiny-glob": "^0.2.9"
 	}
 }

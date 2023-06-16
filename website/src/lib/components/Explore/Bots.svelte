@@ -1,7 +1,7 @@
 <script lang="ts">
 	// components
 	import BotCard from '$lib/components/Cards/Bot.svelte';
-	import Icon from '@iconify/svelte';
+	import Loader from '$lib/components/Loader.svelte';
 
 	// props
 	export let heading = 'Explore Bots...';
@@ -16,7 +16,7 @@
 	</div>
 	{#if bots.length == 0}
 		<div class="flex justify-center items-center">
-			<Icon icon="eos-icons:three-dots-loading" width={200} height={100} />
+			<Loader />
 		</div>
 	{/if}
 	<div class="pt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -25,7 +25,8 @@
 				avatar={bot.avatar}
 				votes={bot.votes}
 				description={bot.shortDescription}
-				id={bot.username}
+				id={bot.identifier}
+				username={bot.username}
 				tags={bot.tags}
 			/>
 		{/each}

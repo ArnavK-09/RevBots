@@ -12,6 +12,7 @@
 	// components
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Loader from '$lib/components/Loader.svelte';
 	import Icon from '@iconify/svelte';
 
 	// variables
@@ -41,7 +42,7 @@
 	}> = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Explore Bots', url: '/' },
-		{ name: 'Your Profile', url: '/me' },
+		{ name: 'Your Profile', url: '/@me' },
 		{ name: 'Github', url: '/github' },
 		{ name: 'Support', url: '/support' },
 		{ name: 'API', url: '/api' }
@@ -55,13 +56,18 @@
 		class="flex justify-center items-center z-40 p-auto h-screen w-screen bg-black/50 fixed left-0 top-0"
 	>
 		<div>
-			<Icon icon="eos-icons:three-dots-loading" width={200} height={100} />
+			<Loader />
 		</div>
 	</section>
 {/if}
 <!-- universal menu drawer -->
 {#if $nav}
-	<section transition:fade class="z-20 h-screen w-screen bg-black/70 fixed top-0" />
+	<section
+		on:keypress={() => console.log('Navbar key press')}
+		on:click={() => nav.set(false)}
+		transition:fade
+		class="z-20 h-screen w-screen bg-black/70 fixed top-0"
+	/>
 {/if}
 {#if $nav}
 	<aside

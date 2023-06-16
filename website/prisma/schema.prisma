@@ -1,6 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+// Base Prisma
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
@@ -11,14 +9,17 @@ datasource db {
   url      = env("DB_URL")
 }
 
+// Models
 model User {
-  id         String   @id @default(uuid()) @db.Uuid
-  username   String   @unique
-  identifier String   @unique
-  avatar     String   @default("/logo.png")
-  verified   Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  bots       Bot[]
+  id            String   @id @default(uuid()) @db.Uuid
+  username      String
+  discriminator String
+  identifier    String   @unique
+  avatar        String   @default("/logo.png")
+  verified      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  bots          Bot[]
+  vote_timers   Vote[]
 }
 
 model Bot {
@@ -34,14 +35,34 @@ model Bot {
   support          String?
   github           String
   invite           String
-  username         String    @unique
+  username         String
   identifier       String    @unique
+  discriminator    String
   publishedOn      DateTime  @default(now())
   prefix           String
   status           BotStatus @default(PENDING)
   promoted         Boolean   @default(false)
+  active_votes     Vote[]
 }
 
+model Request {
+  code   String  @id @unique @default("CODE")
+  status Boolean @default(false)
+  user   String  @unique
+}
+
+model Vote {
+  voter           User     @relation(fields: [voterIdentifier], references: [identifier], onDelete: Cascade)
+  voterIdentifier String
+  bot             Bot      @relation(fields: [botIdentifier], references: [identifier], onDelete: Cascade)
+  botIdentifier   String
+  key             String   @unique @default(uuid()) @db.Uuid
+  time            DateTime @default(now())
+
+  @@unique([botIdentifier, voterIdentifier])
+}
+
+// Enums
 enum Tag {
   ANIME
   FUN
@@ -60,10 +81,4 @@ enum BotStatus {
   SHADOW_BANNED
   DEPRECATED
   PENDING
-}
-
-model Request {
-  code   String  @id @unique @default("CODE")
-  status Boolean @default(false)
-  user   String  @unique
 }
