@@ -26,6 +26,10 @@
 					value: data.identifier
 				},
 				{
+					name: 'Discriminator',
+					value: `#${data.discriminator}`
+				},
+				{
 					name: 'Prefix',
 					value: data.prefix
 				},

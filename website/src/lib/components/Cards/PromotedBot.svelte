@@ -3,6 +3,7 @@
 	import Icon from '@iconify/svelte';
 	// props
 	export let id: string;
+	export let username: string;
 	export let description: string | null;
 	export let avatar = '/logo.png';
 </script>
@@ -13,18 +14,18 @@
 	<div class="pt-10 w-full">
 		<div class="mb-4">
 			<div class="flex my-4 justify-center items-center scale-150">
-				<a href={`/@${id}`}>
+				<a href={`/bot/${id}`}>
 					<img
 						src={avatar}
-						alt={`${id} Pfp`}
+						alt={`${username} Pfp`}
 						class="md:h-16 md:w-16 h-12 w-12 border-2 border-red-600 rounded-full"
 					/>
 				</a>
 			</div>
 			<div class="text-center mt-5">
-				<a class="select-none" href={`/@${id}`}>
+				<a class="select-none" href={`/bot/${id}`}>
 					<h3 class="break-all md:text-4xl text-2xl capitalize font-semibold text-red-700">
-						{id}
+						{username}
 					</h3>
 				</a>
 			</div>
@@ -33,7 +34,7 @@
 			{description ?? 'No Description Available...'}
 		</p>
 		<a
-			href={`/@${id}`}
+			href={`/bot/${id}`}
 			class="bg-gradient-to-br mt-5 from-red-800 to-red-600 py-3 font-semibold tracking-widest text-lg items-center flex justify-center rounded-lg"
 		>
 			<Icon width={25} height={25} icon="line-md:star-pulsating-filled-loop" color="#fff" />
