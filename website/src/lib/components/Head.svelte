@@ -14,7 +14,7 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content="/banner.png" />
-	<meta property="og:url" content="https://revbots.ga" />
+	<meta property="og:url" content="https://revbots.vercel.app" />
 	<meta property="og:type" content="website" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
