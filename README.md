@@ -25,6 +25,7 @@ Welcome to RevBots, a Revolt bot list website showcasing a collection of powerfu
 - Discover a wide range of Revolt bots for various purposes and interests.
 - Explore detailed bot profiles with descriptions, owner, socials etc.
 - Easily add bots to your Revolt server with just a click
+- Amazing Voting System (24 hrs)
 - Add your own bot easily
 - Authentication system with Revolt API
 - Better and Modern UI
