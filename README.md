@@ -57,6 +57,7 @@ We welcome contributions from the community to enhance both RevBots website and 
 To get started, clone this repository and run the following commands:
 
 ```bash
+# Clone repo
 git clone https://github.com/ArnavK-09/RevBots.git
 cd RevBots
 
