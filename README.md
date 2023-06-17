@@ -47,7 +47,7 @@ We welcome contributions from the community to enhance both RevBots website and 
 
 1. Fork the repository and create a new branch.
 2. Make your changes and test them thoroughly.
-3. Format code with prettier using ` npm run format `.
+3. Format code with prettier using ` npm run format ` in corresponding directory.
 4. Commit your changes with descriptive commit messages.
 5. Submit a pull request, explaining the purpose and scope of your changes.
 
