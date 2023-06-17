@@ -48,6 +48,7 @@ export const load = (async ({ url }) => {
 			where: wQuery,
 			select: {
 				username: true,
+     identifier: true,
 				votes: true,
 				shortDescription: true,
 				avatar: true,
