@@ -80,5 +80,10 @@ client.on("messageCreate", async (message) => {
   }
 });
 
+// validate 
+if(!(process.env["BOT_TOKEN"])) {
+  throw new Error("No Token?")
+}
+
 // login bot
 client.loginBot(process.env["BOT_TOKEN"]);
