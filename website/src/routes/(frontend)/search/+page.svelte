@@ -26,7 +26,7 @@
 		heading="Search Results..."
 	/>
 {:else}
-	<section class="flex h-screen items-center justify-center">
+	<section class="flex h-48 items-center justify-center">
 		<h3 class="tracking-wide text-2xl md:text-4xl text-gray-200 font-medium">No Bots Found :(</h3>
 	</section>
 {/if}
