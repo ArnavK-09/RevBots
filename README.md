@@ -79,7 +79,7 @@ If you have any questions or issues, please open an issue on this repository or 
 Check out our **[Official Roadmap](https://rvlt.gg/sZjgZrPV)** to see the planned features and improvements for RevBots.
 
 ## 📺 Live Preview
-Visit the [Live Preview](https://rev-bots-tau.vercel.app) to explore RevBots and interact with RevBot in our official Revolt Server
+Visit the **[Live Preview](https://revbots.vercel.app/)** to explore RevBots and interact with RevBot in our official Revolt Server
 
 ## 🧮 License
 RevBots and RevBot are both licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
